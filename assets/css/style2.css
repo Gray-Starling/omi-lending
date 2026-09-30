@@ -1,0 +1,369 @@
+/* ============================================================
+ГЛОБАЛЬНЫЕ ТОКЕНЫ И ШРИФТЫ
+============================================================ */
+:root {
+  --gold: #f1da8d;
+  --gold-h: #e9d07a;
+  --white: #f5f4f1;
+  --ink: #1e1d1a;
+  --dark: #201b16;
+  --graphite: #4f5052;
+  --bg-page: #241c15;
+  --line-topbar: rgba(255, 255, 255, 0.05);
+  --line-circle: rgba(245, 244, 241, 0.28);
+  --blur-mnav: blur(20px);
+  --radius-pill: 999px;
+  --font-body: "Mulish";
+  --font-ui: "Sansation";
+}
+
+@font-face {
+  font-family: "Mulish";
+  src: url("../fonts/Mulish/static/Mulish-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sansation";
+  src: url("../fonts/Sansation/Sansation-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-body), sans-serif;
+  font-weight: 200;
+  color: var(--white);
+  background: var(--bg-page);
+}
+a { color: inherit; text-decoration: none; }
+svg { stroke: currentColor; fill: none; }
+
+.wrap {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+/* ============================================================
+КНОПКА (Shimmer + 3D Lift)
+============================================================ */
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  
+  background: linear-gradient(
+    45deg, 
+    #f1da8d 0%, 
+    #e9d07a 25%, 
+    #f8e6b0 50%, 
+    #e9d07a 75%, 
+    #f1da8d 100%
+  );
+  background-size: 300% 300%;
+  
+  color: var(--ink);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui), var(--font-body), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 15px 28px;
+  
+  perspective: 800px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn {
+  animation: goldShimmer 6s ease-in-out infinite;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px) rotateX(3deg);
+  animation-duration: 2s;
+}
+
+.btn:hover::before {
+  left: 150%;
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(1px) rotateX(0deg);
+  transition-duration: 0.1s;
+}
+
+/* ============================================================
+БЛОК 1. ХЕДЕР
+============================================================ */
+.topbar {
+  position: relative;
+  z-index: 50;
+  background: rgba(26, 23, 19, 0.62);
+  backdrop-filter: blur(34px) saturate(110%);
+  -webkit-backdrop-filter: blur(34px) saturate(110%);
+  border-bottom: 1px solid var(--line-topbar);
+  font-family: var(--font-ui), var(--font-body), sans-serif;
+  font-weight: 400;
+}
+.topbar__in {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+
+/* Навигация */
+.nav {
+  display: flex;
+  flex: 1;
+  margin-left: 0;
+  justify-content: center;
+}
+.nav ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav a {
+  color: var(--white);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.nav a:hover { color: var(--gold); }
+
+/* Правая часть хедера */
+.topbar__right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar__phone {
+  color: var(--white);
+  font-size: 15px;
+  margin-left: 20px;
+  margin-right: 16px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.topbar__phone:hover { color: var(--gold); }
+
+/* Бургер */
+.burger {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--line-circle);
+  background: none;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.burger svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+/* Мобильное меню */
+.mnav {
+  position: fixed; inset: 0; z-index: 70;
+  background: rgba(20, 17, 14, 0.97);
+  backdrop-filter: var(--blur-mnav);
+  -webkit-backdrop-filter: var(--blur-mnav);
+  font-family: var(--font-ui), var(--font-body), sans-serif;
+  font-weight: 400;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 26px;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.mnav.open { opacity: 1; visibility: visible; }
+.mnav nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mnav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.mnav a.ml {
+  color: var(--white);
+  font-size: 22px; letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.mnav a.ml:hover { color: var(--gold); }
+.mnav__close {
+  position: absolute; top: 56px; right: 22px;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--line-circle);
+  background: none; color: var(--white);
+  font-size: 20px; line-height: 1; cursor: pointer;
+}
+.mnav__phone {
+  color: var(--gold);
+  font-size: 16px; margin-top: 10px;
+}
+
+/* ============================================================
+ПЛАВАЮЩИЕ ИКОНКИ СОЦСЕТЕЙ
+============================================================ */
+.floating-socials {
+  position: fixed;
+  right: 20px;
+  bottom: 120px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-link {
+  position: relative;
+  overflow: hidden;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--graphite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+
+.social-link:hover {
+  transform: translateY(-2px) rotateX(3deg);
+}
+
+.social-link:hover::before {
+  left: 150%;
+  opacity: 1;
+}
+
+.social-link img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: brightness(0) invert(1);
+  transition: filter 0.2s;
+}
+
+.social-link:hover img {
+  filter: brightness(0) saturate(100%) invert(93%) sepia(18%) saturate(543%) hue-rotate(6deg) brightness(97%) contrast(87%);
+}
+
+/* ============================================================
+АДАПТИВ
+============================================================ */
+@media (max-width: 1024px) {
+  .nav { display: none; }
+  .burger { display: flex; margin-left: 16px; }
+}
+
+@media (max-width: 640px) {
+  .topbar__right .btn { display: none; }
+  .topbar__in { 
+    height: 64px; 
+    position: relative;
+  }
+  .logo img { width: 46px; height: 46px; }
+  .wrap { padding: 0 24px; }
+  
+  /* Телефон по центру */
+  .topbar__phone {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .burger { display: flex; margin-left: 12px; }
+  
+  .floating-socials {
+    right: 16px;
+    bottom: 100px;
+  }
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+  .social-link img {
+    width: 16px;
+    height: 16px;
+  }
+}
