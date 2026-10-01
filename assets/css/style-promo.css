@@ -1,0 +1,206 @@
+/* ============================================================
+ТОКЕНЫ И ШРИФТЫ (стандарт новой сборки: Regular)
+============================================================ */
+:root {
+  --gold: #f1da8d;
+  --gold-h: #e9d07a;
+  --gold-d: #d9b95c;
+  --white: #f5f4f1;
+  --ink: #1e1d1a;
+  --light: #efede8;
+  --gray: #6e6a63;
+  --dark: #201b16;
+  --graphite: #4f5052;
+  --bg-page: #241c15;
+  --radius-card: 16px;
+  --radius-pill: 999px;
+  --line-gold-soft: rgba(241, 218, 141, 0.35);
+  --line-gold-faint: rgba(241, 218, 141, 0.2);
+  --font-body: "Mulish";
+  --font-head: "Tenor Sans";
+  --font-ui: "Sansation";
+}
+
+@font-face {
+  font-family: "Mulish";
+  src: url("../fonts/Mulish/static/Mulish-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Tenor Sans";
+  src: url("../fonts/Tenor_Sans/TenorSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sansation";
+  src: url("../fonts/Sansation/Sansation-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body), sans-serif;
+  font-weight: 400;
+  color: var(--white);
+  background: var(--bg-page);
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 {
+  font-family: var(--font-head), var(--font-body), serif;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+КНОПКА — «ПЛАСТИНА ЗОЛОТА»
+============================================================ */
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(
+    45deg,
+    #f1da8d 0%,
+    #e9d07a 25%,
+    #f8e6b0 50%,
+    #e9d07a 75%,
+    #f1da8d 100%
+  );
+  background-size: 300% 300%;
+  color: var(--ink);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui), var(--font-body), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 15px 28px;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes goldShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.btn { animation: goldShimmer 6s ease-in-out infinite; }
+.btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+.btn:hover {
+  transform: translateY(-2px) rotateX(3deg);
+  animation-duration: 2s;
+}
+.btn:hover::before { left: 150%; opacity: 1; }
+.btn:active {
+  transform: translateY(1px) rotateX(0deg);
+  transition-duration: 0.1s;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+ПРОМО-БЛОК: подогрев перед формой
+Графитовая плашка — контраст и к светлым, и к тёмным соседям
+============================================================ */
+.offer {
+  background: var(--bg-page);
+  padding: 100px 0;
+}
+.offer__box {
+  background: var(--graphite);
+  border: 1px solid var(--line-gold-faint);
+  border-radius: var(--radius-card);
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+.offer__tag {
+  padding: 7px 14px;
+  border: 1px solid var(--line-gold-soft);
+  border-radius: var(--radius-pill);
+  color: var(--gold);
+  font-family: var(--font-ui), var(--font-body), sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.offer__box h2 {
+  color: #fff;
+  font-size: clamp(24px, 2.6vw, 40px);
+  letter-spacing: -0.01em;
+  max-width: 760px;
+}
+/* Акцент цветом, а не синтетическим жиром (у Tenor нет bold) */
+.offer__box h2 b {
+  font-weight: 400;
+  color: var(--gold);
+}
+.offer__box p {
+  color: rgba(245, 244, 241, 0.75);
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 560px;
+}
+.offer .btn {
+  margin-top: 10px;
+}
+
+/* Адаптив */
+@media (max-width: 640px) {
+  .offer { padding: 70px 0; }
+  .offer__box { padding: 40px 22px; }
+  .wrap { padding: 0 24px; }
+}
+
+/* Доступность: без движения */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fade { opacity: 1; transform: none; }
+}
