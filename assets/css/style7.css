@@ -1,0 +1,166 @@
+/* ============================================================
+ТОКЕНЫ И ШРИФТЫ
+============================================================ */
+:root {
+  --gold: #f1da8d; --gold-h: #e9d07a; --gold-d: #d9b95c;
+  --white: #f5f4f1; --ink: #1e1d1a; --light: #efede8; --gray: #6e6a63;
+  --dark: #201b16; --graphite: #4f5052; --bg-page: #241c15;
+  --radius-card: 16px; --radius-pill: 999px;
+  --line-gold-soft: rgba(241,218,141,.35); --line-gold-faint: rgba(241,218,141,.2);
+  --font-body: "Mulish"; --font-head: "Tenor Sans"; --font-ui: "Sansation";
+}
+@font-face { font-family:"Mulish"; src:url("../fonts/Mulish/static/Mulish-Regular.ttf") format("truetype"); font-weight:400; font-display:swap; }
+@font-face { font-family:"Tenor Sans"; src:url("../fonts/Tenor_Sans/TenorSans-Regular.ttf") format("truetype"); font-weight:400; font-display:swap; }
+@font-face { font-family:"Sansation"; src:url("../fonts/Sansation/Sansation-Regular.ttf") format("truetype"); font-weight:400; font-display:swap; }
+
+/* ============================================================
+БАЗА
+============================================================ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body),sans-serif;font-weight:400;color:var(--white);background:var(--bg-page);line-height:1.6}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--font-head),var(--font-body),serif;font-weight:400;line-height:1.2}
+.wrap{width:100%;max-width:1500px;margin:0 auto;padding:0 56px}
+.fade{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.fade.visible{opacity:1;transform:translateY(0)}
+
+/* ============================================================
+КНОПКА — «ПЛАСТИНА ЗОЛОТА» (единый стандарт V10)
+============================================================ */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(45deg,#f1da8d 0%,#e9d07a 25%,#f8e6b0 50%,#e9d07a 75%,#f1da8d 100%);
+  background-size:300% 300%;color:var(--ink);border:none;border-radius:var(--radius-pill);
+  font-family:var(--font-ui),var(--font-body),sans-serif;font-weight:400;font-size:16px;
+  letter-spacing:.02em;line-height:1;cursor:pointer;padding:15px 28px;
+  perspective:800px;transform-style:preserve-3d;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+@keyframes goldShimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.btn{animation:goldShimmer 6s ease-in-out infinite}
+.btn::before{content:'';position:absolute;top:-50%;left:-100%;width:50%;height:200%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);
+  transform:rotate(30deg);opacity:0;transition:all .6s ease;pointer-events:none}
+.btn:hover{transform:translateY(-2px) rotateX(3deg);animation-duration:2s}
+.btn:hover::before{left:150%;opacity:1}
+.btn:active{transform:translateY(1px) rotateX(0deg);transition-duration:.1s}
+.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ============================================================
+БЛОК 7: ГОТОВЫЕ РЕШЕНИЯ (ТЁМНЫЙ ритм)
+============================================================ */
+.solutions{background:var(--dark);color:var(--white);padding:110px 0;overflow:hidden}
+.solutions h2{color:#fff;font-size:clamp(28px,2.8vw,44px);line-height:1.2;letter-spacing:-.01em}
+.solutions__lead{color:rgba(245,244,241,.75);font-size:16px;line-height:1.65;max-width:640px;margin-top:20px}
+
+/* ============================================================
+КАРУСЕЛЬ (spotlight)
+============================================================ */
+.carousel{position:relative;margin-top:56px}
+.carousel__stage{position:relative;height:620px}
+
+/* Маски до края экрана: снаружи сплошной фон (невидим),
+   проявление карточки — только во внутренних 180px */
+.carousel__mask{position:absolute;top:0;bottom:0;pointer-events:none;z-index:4;
+  width:calc(50vw - 50% + 180px)}
+.carousel__mask--left{left:calc(50% - 50vw);
+  background:linear-gradient(270deg,rgba(32,27,22,0) 0,var(--dark) 180px,var(--dark) 100%)}
+.carousel__mask--right{right:calc(50% - 50vw);
+  background:linear-gradient(90deg,rgba(32,27,22,0) 0,var(--dark) 180px,var(--dark) 100%)}
+
+/* ============================================================
+СЛАЙД — плавная анимация
+============================================================ */
+.solution-slide{
+  position:absolute;left:50%;top:50%;
+  width:min(520px,86vw);height:560px;
+  border-radius:var(--radius-card);overflow:hidden;background:#fff;
+  box-shadow:0 20px 60px rgba(0,0,0,.35),0 8px 20px rgba(0,0,0,.2);
+  transform:translate(-50%,-50%);
+  transition:transform .9s cubic-bezier(.33,.1,.25,1),opacity .9s ease;
+  will-change:transform,opacity;
+  cursor:pointer;
+}
+.solution-slide--center{cursor:default}
+.solution-slide--hidden{pointer-events:none}
+
+.solution-slide__media{position:absolute;inset:0;background:#d8cdbe center/cover no-repeat}
+.solution-slide__body{position:absolute;left:0;right:0;bottom:0}
+
+/* Центр: белая панель с полным описанием */
+.solution-slide--center .solution-slide__body{background:#fff;padding:24px 28px}
+.solution-slide--center .solution-slide__title{color:var(--ink);font-size:24px;margin-bottom:6px}
+.solution-slide--center .solution-slide__desc{display:block;color:var(--gray);font-size:14px;line-height:1.5;margin-bottom:14px}
+.solution-slide--center .solution-slide__list{display:grid;gap:8px;margin-bottom:18px}
+.solution-slide--center .solution-slide__footer .btn{display:inline-flex}
+
+/* Боковые: фото во весь кадр + название/цена поверх */
+.solution-slide--side .solution-slide__body{
+  background:linear-gradient(180deg,rgba(15,13,10,0) 0%,rgba(15,13,10,.82) 100%);
+  padding:40px 22px 18px;
+}
+.solution-slide--side .solution-slide__title{color:#fff;font-size:20px;margin-bottom:2px}
+.solution-slide--side .solution-slide__price{color:var(--gold);font-size:17px}
+.solution-slide--side .solution-slide__desc,
+.solution-slide--side .solution-slide__list{display:none}
+.solution-slide--side .solution-slide__footer .btn{display:none}
+
+.solution-slide__list{list-style:none}
+.solution-slide__list li{position:relative;padding-left:20px;font-size:14px;line-height:1.5;color:#3f3b35}
+.solution-slide__list li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--gold-d)}
+.solution-slide__footer{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.solution-slide__price{font-family:var(--font-head),var(--font-body),serif;font-size:22px;color:var(--ink);white-space:nowrap}
+.solution-slide .btn{padding:12px 24px;font-size:14px}
+
+/* ============================================================
+СТРЕЛКИ И ТОЧКИ (под тёмный)
+============================================================ */
+.carousel__arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;
+  background:rgba(245,244,241,.08);border:1px solid var(--line-gold-soft);color:var(--white);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;z-index:5;transition:background .2s,color .2s,transform .2s}
+.carousel__arrow:hover{background:var(--gold);color:var(--ink);transform:translateY(-50%) scale(1.05)}
+.carousel__arrow:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.carousel__arrow--prev{left:16px}
+.carousel__arrow--next{right:16px}
+
+.carousel__dots{display:flex;justify-content:center;gap:10px;margin-top:28px}
+.carousel__dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(245,244,241,.2);cursor:pointer;padding:0;transition:background .2s,width .3s}
+.carousel__dot--active{background:var(--gold);width:24px;border-radius:4px}
+.carousel__dot:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ============================================================
+МОСТ К ИНДИВИДУАЛЬНОМУ ЗАКАЗУ (графит на тёмном)
+============================================================ */
+.solutions__custom{margin-top:56px;text-align:center;padding:40px;
+  background:var(--graphite);border:1px solid var(--line-gold-faint);border-radius:var(--radius-card)}
+.solutions__custom p{color:rgba(245,244,241,.85);font-size:16px;margin-bottom:20px}
+
+/* ============================================================
+АДАПТИВ
+============================================================ */
+@media (max-width:1100px){
+  .carousel__stage{height:560px}
+  .solution-slide{width:min(440px,86vw);height:500px}
+}
+@media (max-width:900px){
+  .carousel__stage{height:auto}
+  .solution-slide{position:relative;left:0;top:0;width:100%;height:auto;transform:none!important;opacity:1!important;display:none}
+  .solution-slide--center{display:block}
+  .solution-slide__media{position:relative;inset:auto;aspect-ratio:16/10}
+  .solution-slide__body{position:static;background:#fff;padding:24px}
+  .solution-slide--center .solution-slide__title{color:var(--ink)}
+  .solution-slide--center .solution-slide__price{color:var(--ink)}
+  .solution-slide--center .solution-slide__footer .btn{display:inline-flex}
+  .carousel__mask,.carousel__arrow{display:none}
+}
+@media (max-width:640px){
+  .solutions{padding:80px 0}
+  .wrap{padding:0 24px}
+  .solutions__custom{padding:32px 24px;margin-top:44px}
+}
+
+/* ============================================================
+ДОСТУПНОСТЬ
+============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .fade{opacity:1;transform:none}
+}
