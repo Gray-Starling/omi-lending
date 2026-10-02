@@ -1,3 +1,4 @@
+/* style7 · FINAL · статичные карточки, анимация только смена позиций */
 /* ============================================================
 ТОКЕНЫ И ШРИФТЫ
 ============================================================ */
@@ -26,7 +27,7 @@ h1,h2,h3,h4{font-family:var(--font-head),var(--font-body),serif;font-weight:400;
 .fade.visible{opacity:1;transform:translateY(0)}
 
 /* ============================================================
-КНОПКА — «ПЛАСТИНА ЗОЛОТА» (единый стандарт V10)
+КНОПКА — «ПЛАСТИНА ЗОЛОТА»
 ============================================================ */
 .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;
   background:linear-gradient(45deg,#f1da8d 0%,#e9d07a 25%,#f8e6b0 50%,#e9d07a 75%,#f1da8d 100%);
@@ -52,13 +53,12 @@ h1,h2,h3,h4{font-family:var(--font-head),var(--font-body),serif;font-weight:400;
 .solutions__lead{color:rgba(245,244,241,.75);font-size:16px;line-height:1.65;max-width:640px;margin-top:20px}
 
 /* ============================================================
-КАРУСЕЛЬ (spotlight)
+КАРУСЕЛЬ
 ============================================================ */
 .carousel{position:relative;margin-top:56px}
-.carousel__stage{position:relative;height:620px}
+.carousel__stage{position:relative;height:600px}
 
-/* Маски до края экрана: снаружи сплошной фон (невидим),
-   проявление карточки — только во внутренних 180px */
+/* Маски до края экрана: снаружи сплошной фон, проявление во внутренних 180px */
 .carousel__mask{position:absolute;top:0;bottom:0;pointer-events:none;z-index:4;
   width:calc(50vw - 50% + 180px)}
 .carousel__mask--left{left:calc(50% - 50vw);
@@ -67,51 +67,37 @@ h1,h2,h3,h4{font-family:var(--font-head),var(--font-body),serif;font-weight:400;
   background:linear-gradient(90deg,rgba(32,27,22,0) 0,var(--dark) 180px,var(--dark) 100%)}
 
 /* ============================================================
-СЛАЙД — плавная анимация
+СЛАЙД — статичная карточка: фото сверху + информация снизу
 ============================================================ */
 .solution-slide{
   position:absolute;left:50%;top:50%;
-  width:min(520px,86vw);height:560px;
+  width:560px;
   border-radius:var(--radius-card);overflow:hidden;background:#fff;
   box-shadow:0 20px 60px rgba(0,0,0,.35),0 8px 20px rgba(0,0,0,.2);
   transform:translate(-50%,-50%);
   transition:transform .9s cubic-bezier(.33,.1,.25,1),opacity .9s ease;
   will-change:transform,opacity;
   cursor:pointer;
+  display:flex;flex-direction:column;
 }
 .solution-slide--center{cursor:default}
 .solution-slide--hidden{pointer-events:none}
 
-.solution-slide__media{position:absolute;inset:0;background:#d8cdbe center/cover no-repeat}
-.solution-slide__body{position:absolute;left:0;right:0;bottom:0}
+/* Фото фиксированной высоты */
+.solution-slide__media{height:380px;flex-shrink:0;background:#d8cdbe center/cover no-repeat}
 
-/* Центр: белая панель с полным описанием */
-.solution-slide--center .solution-slide__body{background:#fff;padding:24px 28px}
-.solution-slide--center .solution-slide__title{color:var(--ink);font-size:24px;margin-bottom:6px}
-.solution-slide--center .solution-slide__desc{display:block;color:var(--gray);font-size:14px;line-height:1.5;margin-bottom:14px}
-.solution-slide--center .solution-slide__list{display:grid;gap:8px;margin-bottom:18px}
-.solution-slide--center .solution-slide__footer .btn{display:inline-flex}
-
-/* Боковые: фото во весь кадр + название/цена поверх */
-.solution-slide--side .solution-slide__body{
-  background:linear-gradient(180deg,rgba(15,13,10,0) 0%,rgba(15,13,10,.82) 100%);
-  padding:40px 22px 18px;
-}
-.solution-slide--side .solution-slide__title{color:#fff;font-size:20px;margin-bottom:2px}
-.solution-slide--side .solution-slide__price{color:var(--gold);font-size:17px}
-.solution-slide--side .solution-slide__desc,
-.solution-slide--side .solution-slide__list{display:none}
-.solution-slide--side .solution-slide__footer .btn{display:none}
-
-.solution-slide__list{list-style:none}
-.solution-slide__list li{position:relative;padding-left:20px;font-size:14px;line-height:1.5;color:#3f3b35}
-.solution-slide__list li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--gold-d)}
-.solution-slide__footer{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.solution-slide__price{font-family:var(--font-head),var(--font-body),serif;font-size:22px;color:var(--ink);white-space:nowrap}
-.solution-slide .btn{padding:12px 24px;font-size:14px}
+/* Информация — всегда видима, без анимаций */
+.solution-slide__body{background:#fff;padding:14px 18px 16px}
+.solution-slide__title{color:var(--ink);font-size:18px;line-height:1.2;margin-bottom:8px}
+.solution-slide__list{list-style:none;display:flex;flex-wrap:wrap;gap:4px 14px;margin-bottom:10px}
+.solution-slide__list li{position:relative;padding-left:16px;font-size:12px;line-height:1.4;color:#3f3b35;flex:0 0 auto}
+.solution-slide__list li::before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--gold-d)}
+.solution-slide__footer{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.solution-slide__price{font-family:var(--font-head),var(--font-body),serif;font-size:17px;color:var(--ink);white-space:nowrap}
+.solution-slide .btn{padding:10px 20px;font-size:13px}
 
 /* ============================================================
-СТРЕЛКИ И ТОЧКИ (под тёмный)
+СТРЕЛКИ И ТОЧКИ
 ============================================================ */
 .carousel__arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;
   background:rgba(245,244,241,.08);border:1px solid var(--line-gold-soft);color:var(--white);cursor:pointer;
@@ -127,7 +113,7 @@ h1,h2,h3,h4{font-family:var(--font-head),var(--font-body),serif;font-weight:400;
 .carousel__dot:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 /* ============================================================
-МОСТ К ИНДИВИДУАЛЬНОМУ ЗАКАЗУ (графит на тёмном)
+МОСТ К ИНДИВИДУАЛЬНОМУ ЗАКАЗУ
 ============================================================ */
 .solutions__custom{margin-top:56px;text-align:center;padding:40px;
   background:var(--graphite);border:1px solid var(--line-gold-faint);border-radius:var(--radius-card)}
@@ -138,22 +124,23 @@ h1,h2,h3,h4{font-family:var(--font-head),var(--font-body),serif;font-weight:400;
 ============================================================ */
 @media (max-width:1100px){
   .carousel__stage{height:560px}
-  .solution-slide{width:min(440px,86vw);height:500px}
+  .solution-slide{width:480px}
+  .solution-slide__media{height:340px}
 }
 @media (max-width:900px){
-  .carousel__stage{height:auto}
-  .solution-slide{position:relative;left:0;top:0;width:100%;height:auto;transform:none!important;opacity:1!important;display:none}
-  .solution-slide--center{display:block}
-  .solution-slide__media{position:relative;inset:auto;aspect-ratio:16/10}
-  .solution-slide__body{position:static;background:#fff;padding:24px}
-  .solution-slide--center .solution-slide__title{color:var(--ink)}
-  .solution-slide--center .solution-slide__price{color:var(--ink)}
-  .solution-slide--center .solution-slide__footer .btn{display:inline-flex}
-  .carousel__mask,.carousel__arrow{display:none}
+  .carousel__stage{height:540px}
+  .solution-slide{width:calc(100% - 32px)}
+  .solution-slide__media{height:auto;aspect-ratio:4/3}
+  .carousel__mask{display:none}
+  /* Стрелки видимы на мобилках — показывают, что можно свайпать */
+  .carousel__arrow{width:40px;height:40px}
+  .carousel__arrow--prev{left:8px}
+  .carousel__arrow--next{right:8px}
 }
 @media (max-width:640px){
   .solutions{padding:80px 0}
   .wrap{padding:0 24px}
+  .carousel__stage{height:520px}
   .solutions__custom{padding:32px 24px;margin-top:44px}
 }
 

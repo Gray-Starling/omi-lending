@@ -46,7 +46,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const noHover = matchMedia('(hover: none), (pointer: coarse)').matches;
+  const mobileMQ = matchMedia('(max-width: 900px)');
 
+  // Появление секции
   const fadeEls = document.querySelectorAll('.fade');
   if (reduced || !('IntersectionObserver' in window)) {
     fadeEls.forEach(el => el.classList.add('visible'));
@@ -60,16 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== ДАННЫЕ КАТАЛОГА =====
   const slides = [
     { image: 'assets/img/solution-scandinavia.jpg', title: 'Скандинавия', price: 'от 50 000 ₽',
-      desc: 'Лаконичная тумба с керамической раковиной в светлом дубе.',
       bullets: ['Тумба с ящиками и доводчиками', 'Керамическая раковина', 'Фасады из влагостойкого МДФ'] },
     { image: 'assets/img/solution-loft.jpg', title: 'Лофт', price: 'от 80 000 ₽',
-      desc: 'Полный санитарный блок: инсталляция, унитаз и шкаф над ней.',
       bullets: ['Унитаз с инсталляцией', 'Хромированная кнопка смыва', 'Шкаф над инсталляцией'] },
     { image: 'assets/img/solution-modern.jpg', title: 'Модерн', price: 'от 60 000 ₽',
-      desc: 'Зона хранения и организации в современном стиле.',
       bullets: ['Шкаф над стиральной машиной', 'Пенал для хранения', 'Единый стиль фасадов'] },
     { image: 'assets/img/solution-scandinavia.jpg', title: 'Классика', price: 'от 150 000 ₽',
-      desc: 'Полный комплект ванной комнаты: мебель, сантехника, аксессуары.',
       bullets: ['Тумба с раковиной и зеркалом', 'Пенал и шкаф над инсталляцией', 'Подбор сантехники и аксессуаров'] }
   ];
 
@@ -78,7 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const prev = document.querySelector('.carousel__arrow--prev');
   const next = document.querySelector('.carousel__arrow--next');
   const car = document.getElementById('solutions-carousel');
+  if (!stage || !slides.length) return;
 
+  // Все карточки одинаковые: фото сверху + информация снизу
   slides.forEach((s, i) => {
     const el = document.createElement('article');
     el.className = 'solution-slide';
@@ -87,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="solution-slide__media" style="background-image:url('${s.image}')" aria-hidden="true"></div>
       <div class="solution-slide__body">
         <h3 class="solution-slide__title">${s.title}</h3>
-        <p class="solution-slide__desc">${s.desc}</p>
         <ul class="solution-slide__list">${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
         <div class="solution-slide__footer">
           <span class="solution-slide__price">${s.price}</span>
@@ -106,58 +105,49 @@ document.addEventListener('DOMContentLoaded', () => {
   const allSlides = Array.from(stage.children);
   const allDots = Array.from(dotsWrap.children);
   let current = 0, autoTimer = null, hovered = false;
-  let lastDir = 1, first = true;   // <-- добавили
+  let lastDir = 1, first = true;
 
+  // ===== РАСКЛАДКА: анимируется ТОЛЬКО смена позиций =====
   function render() {
     const n = slides.length;
     const w = allSlides[0].offsetWidth;
     const scale = 0.8, gap = 24;
     const offset = w / 2 + gap + (w * scale) / 2;
-    // «за экраном»: полуширина стейджа + полуширина карточки в scale + запас
     const exitOff = stage.clientWidth / 2 + (w * scale) / 2 + 60;
 
     allSlides.forEach((el, i) => {
       const diff = ((i - current) % n + n) % n;
       el.classList.remove('solution-slide--center', 'solution-slide--side', 'solution-slide--hidden');
-      let tx = 0, sc = 1, op = 1, z = 3;
+      let role, tx, sc, op, z;
 
-      if (diff === 0)          { el.classList.add('solution-slide--center'); tx = 0;       sc = 1;    op = 1;  z = 3; }
-      else if (diff === 1)     { el.classList.add('solution-slide--side');   tx = offset;  sc = scale; op = .9; z = 2; }
-      else if (diff === n - 1) { el.classList.add('solution-slide--side');   tx = -offset; sc = scale; op = .9; z = 2; }
-      // СКРЫТАЯ: уезжает за экран в свою сторону, а не в центр
-      else {
-        el.classList.add('solution-slide--hidden');
-        tx = lastDir === 1 ? -exitOff : exitOff;
-        sc = scale; op = 0; z = 1;
-      }
+      if (diff === 0)          { role = 'center'; tx = 0;       sc = 1;    op = 1;  z = 3; }
+      else if (diff === 1)     { role = 'right';  tx = offset;  sc = scale; op = .9; z = 2; }
+      else if (diff === n - 1) { role = 'left';   tx = -offset; sc = scale; op = .9; z = 2; }
+      else                     { role = 'hidden'; tx = lastDir === 1 ? -exitOff : exitOff; sc = scale; op = 0; z = 1; }
 
-      // ВХОДЯЩАЯ: перед плавным въездом невидимо паркуется за экраном со стороны входа
+      // Входящая карточка: невидимый прыжок за экран, затем плавный въезд
       const prevRole = el._role;
-      if (prevRole === 'hidden' && (el.classList.contains('solution-slide--side'))) {
-        const enterTx = el.classList.contains('solution-slide--side') && tx > 0 ? exitOff : -exitOff;
+      if (prevRole === 'hidden' && (role === 'right' || role === 'left')) {
+        const enterTx = role === 'right' ? exitOff : -exitOff;
         el.style.transition = 'none';
         el.style.opacity = '0';
         el.style.transform = `translate(-50%,-50%) translateX(${enterTx}px) scale(${scale})`;
-        void el.offsetWidth;           // форсируем применение
-        el.style.transition = '';      // возвращаем плавную анимацию
+        void el.offsetWidth;
+        el.style.transition = '';
       }
       if (first) el.style.transition = 'none';
 
-      el._role = el.classList.contains('solution-slide--center') ? 'center'
-               : el.classList.contains('solution-slide--side') ? 'side' : 'hidden';
-
+      el._role = role;
       el.style.zIndex = z;
       el.style.opacity = op;
       el.style.transform = `translate(-50%,-50%) translateX(${tx}px) scale(${sc})`;
     });
 
-    // Первый кадр — без анимации (карточки просто появляются)
     if (first) {
       void stage.offsetWidth;
       allSlides.forEach(el => { el.style.transition = ''; });
       first = false;
     }
-
     allDots.forEach((d, i) => d.classList.toggle('carousel__dot--active', i === current));
   }
 
@@ -174,10 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
     render();
   }
 
+  // ===== АВТОПЛЕЙ: только десктоп с hover; на тач и мобилках — нет =====
   function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
   function startAuto() {
     stopAuto();
-    if (reduced || hovered || noHover) return;
+    if (reduced || hovered || noHover || mobileMQ.matches) return;
     autoTimer = setInterval(() => goTo(current + 1, 1), 6000);
   }
 
@@ -185,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
   next.addEventListener('click', () => { goTo(current + 1, 1); startAuto(); });
   allDots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); startAuto(); }));
 
+  // Клик по боковой карточке = она в центр
   stage.addEventListener('click', e => {
     const s = e.target.closest('.solution-slide');
     if (!s || e.target.closest('.btn')) return;
@@ -195,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
   car.addEventListener('mouseenter', () => { hovered = true; stopAuto(); });
   car.addEventListener('mouseleave', () => { hovered = false; startAuto(); });
 
+  // Свайп
   let sx = 0, sy = 0, tr = false;
   stage.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; tr = true; }, { passive: true });
   stage.addEventListener('touchend', e => {
@@ -207,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tr = false;
   });
 
-  window.addEventListener('resize', render);
+  window.addEventListener('resize', () => { render(); startAuto(); });
   render();
   startAuto();
 });
