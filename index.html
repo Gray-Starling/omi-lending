@@ -3,82 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OMI — решения для ванной</title>
+    <title>OMI - мебель и сантехника во Владивостоке</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
     <meta
-      name="description"
-      content="OMI: комплексные решения для ванной во Владивостоке. Мебель на заказ, сантехника, душевые, зеркала и аксессуары — один проект, одна смета, одна команда."
+      property="og:title"
+      content="OMI - мебель и сантехника во Владивостоке"
     />
-    <meta property="og:title" content="OMI — решения для ванной комнаты" />
     <meta
       property="og:description"
-      content="Комплексные решения для ванной во Владивостоке: мебель, сантехника, душевые, зеркала и свет."
+      content="OMI - комплексные решения для ванной комнаты во Владивостоке. Мебель собственного производства, сантехника, зеркала."
     />
-    <meta property="og:image" content="assets/img/og.png" />
+    <meta property="og:image" content="assets/img/hero.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="ru_RU" />
-    <meta name="theme-color" content="#141311" />
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta property="og:url" content="https://omi-shop.ru" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="preload"
+      href="assets/fonts/Mulish/static/Mulish-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/Mulish/static/Mulish-SemiBold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/Tenor_Sans/TenorSans-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/Sansation/Sansation-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
   </head>
   <body>
     <!-- БЛОК 1. ХЕДЕР -->
     <header class="topbar">
       <div class="wrap topbar__in">
-        <a class="logo" href="index.html" aria-label="OMI">
-          <img src="assets/icons/omi_logo.svg" alt="OMI" />
+        <a href="index.html" class="logo">
+          <img
+            src="assets/icons/omi_logo.svg"
+            alt="OMI"
+            width="56"
+            height="56"
+          />
         </a>
-        <nav class="nav">
-          <a href="#furniture">Мебель</a>
-          <a href="#salons">Салоны</a>
-          <a href="#projects">Проекты</a>
-          <a href="#reviews">Отзывы</a>
-          <a href="#faq">Вопросы</a>
+        <nav class="nav" aria-label="Основная навигация">
+          <ul>
+            <li><a href="#furniture">Мебель</a></li>
+            <li><a href="#salons">Салоны</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#faq">Вопросы</a></li>
+          </ul>
         </nav>
         <div class="topbar__right">
-          <a class="topbar__phone" href="tel:+79021234567"
-            >+7 (902) 123-45-67</a
+          <a href="tel:+79021234567" class="topbar__phone"
+            >+7 (966) 290-77-21</a
           >
-          <a
-            class="topbar__call"
-            href="tel:+79021234567"
-            aria-label="Позвонить"
+          <a href="#contacts-offer" class="btn">Консультация</a>
+          <button
+            class="burger"
+            aria-expanded="false"
+            aria-controls="mnav"
+            aria-label="Открыть меню"
           >
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"
-              />
+            <svg viewBox="0 0 24 24" width="18" height="18">
+              <path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round" />
             </svg>
-          </a>
-          <a
-            class="msn"
-            href="https://t.me/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Telegram"
-          >
-            <img src="assets/icons/telegram_logo.svg" alt="" />
-          </a>
-          <a
-            class="msn"
-            href="https://wa.me/79021234567"
-            target="_blank"
-            rel="noopener"
-            aria-label="WhatsApp"
-          >
-            <img src="assets/icons/whatsapp_logo.svg" alt="" />
-          </a>
-          <a
-            class="msn"
-            href="https://max.ru/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Max"
-          >
-            <img src="assets/icons/max_logo.svg" alt="" />
-          </a>
-          <a class="btn" href="#contacts">Консультация</a>
-          <button class="burger" aria-label="Меню" aria-expanded="false">
-            <svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" /></svg>
           </button>
         </div>
       </div>
@@ -87,573 +91,960 @@
     <!-- Мобильное меню -->
     <div class="mnav" id="mnav">
       <button class="mnav__close" aria-label="Закрыть меню">×</button>
-      <a class="ml" href="#furniture">Мебель</a>
-      <a class="ml" href="#salons">Салоны</a>
-      <a class="ml" href="#projects">Проекты</a>
-      <a class="ml" href="#reviews">Отзывы</a>
-      <a class="ml" href="#faq">Вопросы</a>
-      <a class="ml" href="#contacts">Консультация</a>
-      <a class="mnav__phone" href="tel:+79021234567">+7 (902) 123-45-67</a>
-      <div class="mnav__msn">
-        <a
-          class="msn"
-          href="https://t.me/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Telegram"
-        >
-          <img src="assets/icons/telegram_logo.svg" alt="" />
-        </a>
-        <a
-          class="msn"
-          href="https://wa.me/79021234567"
-          target="_blank"
-          rel="noopener"
-          aria-label="WhatsApp"
-        >
-          <img src="assets/icons/whatsapp_logo.svg" alt="" />
-        </a>
-        <a
-          class="msn"
-          href="https://max.ru/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Max"
-        >
-          <img src="assets/icons/max_logo.svg" alt="" />
-        </a>
-      </div>
+      <nav aria-label="Мобильная навигация">
+        <ul>
+          <li><a href="#furniture" class="ml">Мебель</a></li>
+          <li><a href="#salons" class="ml">Салоны</a></li>
+          <li><a href="#projects" class="ml">Проекты</a></li>
+          <li><a href="#reviews" class="ml">Отзывы</a></li>
+          <li><a href="#faq" class="ml">Вопросы</a></li>
+        </ul>
+      </nav>
+      <a href="#contacts-offer" class="btn">Консультация</a>
+      <a href="tel:+79021234567" class="mnav__phone">+7 (966) 290-77-21</a>
+    </div>
+
+    <!-- ПЛАВАЮЩИЕ ИКОНКИ СОЦСЕТЕЙ -->
+    <div class="floating-socials">
+      <a
+        href="https://wa.me/79021234567"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        aria-label="WhatsApp"
+      >
+        <img
+          src="assets/icons/whatsapp_logo.svg"
+          alt="WhatsApp"
+          width="18"
+          height="18"
+        />
+      </a>
+      <a
+        href="https://t.me/omi"
+        target="_blank"
+        rel="noopener"
+        class="social-link"
+        aria-label="Telegram"
+      >
+        <img
+          src="assets/icons/telegram_logo.svg"
+          alt="Telegram"
+          width="18"
+          height="18"
+        />
+      </a>
+      <a href="#" class="social-link" aria-label="MAX">
+        <img src="assets/icons/max_logo.svg" alt="MAX" width="18" height="18" />
+      </a>
     </div>
 
     <!-- БЛОК 2. HERO -->
     <section class="hero">
       <div class="wrap hero__in">
         <div class="hero__content fade">
-          <h1>Всё, что нужно<br />для вашей ванной —<br />в одном месте</h1>
+          <h1>
+            Всё, что нужно <br class="h1__br" />для ванной комнаты
+            <br class="h1__br" />в одном месте
+          </h1>
           <p class="hero__text">
-            Сантехника, мебель, душевые, зеркала и аксессуары. Подбираем,
-            проектируем и создаём решения под ваше пространство.
+            Сантехника, душевые, зеркала и аксессуары. Мебель - под ваши
+            размеры:
           </p>
+          <div class="hero__tags">
+            <span class="hero__tag">тумбы под раковину</span>
+            <span class="hero__tag">пеналы</span>
+            <span class="hero__tag">шкафы над инсталляцией</span>
+            <span class="hero__tag">ниши и полки</span>
+          </div>
+          <p class="hero__hook">Продумаем хранение до последней полочки.</p>
           <div class="hero__actions">
-            <a class="btn" href="#contacts"
-              >Рассчитать решение <span class="arr">→</span></a
-            >
-            <a class="hero__link" href="#projects">Посмотреть проекты</a>
+            <a href="#contacts-offer" class="btn"
+              >Рассчитать решение
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </div>
-        <div class="hero__note">Владивосток.<br />Шоурум и производство</div>
       </div>
+     
     </section>
 
-    <!-- БЛОК 3. БРЕНД OMI -->
-    <section class="brand" id="about">
-      <div class="wrap brand__in fade">
-        <div class="brand__grid">
-          <div class="bitem">
-            <div class="bitem__icon">
+    <!-- ПЛАШКИ ДОВЕРИЯ: съезжают с фото -->
+      <div class="hero-stats">
+        <div class="wrap">
+          <ul class="stats fade">
+            <li class="stat">
+              <p class="stat__title"><b>0 ₽</b> консультация дизайнера</p>
+              <p class="stat__text">
+                Подскажем по планировке, цветам и материалам, ответим на вопросы
+                по вашему проекту.
+              </p>
+            </li>
+            <li class="stat">
+              <p class="stat__title"><b>0 ₽</b> 3D-визуал до договора</p>
+              <p class="stat__text">
+                Увидите будущую ванную и внесёте правки до начала работ, а не
+                после.
+              </p>
+            </li>
+            <li class="stat">
+              <p class="stat__title"><b>1 день</b> на полный расчёт</p>
+              <p class="stat__text">
+                Посчитаем все позиции и зафиксируем цену в договоре - она не
+                изменится в процессе.
+              </p>
+            </li>
+            <li class="stat">
+              <p class="stat__title"><b>Владивосток</b> своё производство</p>
+              <p class="stat__text">
+                Мебель делаем в собственном цеху, а материалы покажем вживую в
+                шоуруме.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <!-- БЛОК 3. СОСТАВ: ЧТО МЫ СОБИРАЕМ В ВАННОЙ -->
+    <section class="product" id="product">
+      <div class="wrap product__in">
+        <div class="product__head fade">
+          <h2>Собираем ванную комнату: от мебели до аксессуаров</h2>
+          <p class="product__lead">
+            Наполняем ванную комнату в любом сценарии: после ремонта, при
+            обновлении интерьера или под отдельный шкаф. Если нужно - согласуем
+            решения и порядок монтажа ещё на стадии ремонта.
+          </p>
+          <p class="product__motto">Один проект, один договор, одна команда.</p>
+        </div>
+
+        <div class="product__grid">
+          <article class="product-card product-card--featured fade">
+            <div class="product-card__body">
+              <div class="product-card__icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="4" y="6" width="16" height="13" rx="2" />
+                  <path d="M4 12.5h16" />
+                  <path d="M10 9.25h4M10 15.75h4" />
+                </svg>
+              </div>
+              <h3>Мебель</h3>
+              <p>
+                Тумбы, пеналы, шкафы над инсталляцией, ниши и полки - по вашим
+                размерам, из влагостойких материалов.
+              </p>
+            </div>
+            <div class="product-card__media">
+              <img
+                src="assets/img/furniture.png"
+                alt="Мебель OMI для ванной комнаты"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
+
+          <article class="product-card fade">
+            <div class="product-card__icon">
               <svg viewBox="0 0 24 24">
-                <path d="M3 20V9l6 4V9l6 4V9l6 4v8H3Z" />
-                <path d="M3 20h18" />
+                <path d="M5 12h14v1a7 7 0 0 1-14 0v-1Z" />
+                <path d="M12 12V8a3 3 0 0 1 3-3h2" />
               </svg>
             </div>
-            <h3>Собственное<br />производство</h3>
-          </div>
-          <div class="bitem">
-            <div class="bitem__icon">
+            <h3>Сантехника</h3>
+            <p>
+              Раковины, смесители, унитазы и инсталляции - встанут точно к
+              мебели.
+            </p>
+          </article>
+
+          <article class="product-card fade">
+            <div class="product-card__icon">
               <svg viewBox="0 0 24 24">
-                <path d="M12 3 20 7v10l-8 4-8-4V7Z" />
-                <path d="m4 7 8 4 8-4M12 11v10" />
+                <path d="M12 6V4" />
+                <path d="M8 10a4 4 0 0 1 8 0Z" />
+                <path d="M8 13v2M12 13v3M16 13v2" />
               </svg>
             </div>
-            <h3>Готовая<br />продукция</h3>
-          </div>
-          <div class="bitem">
-            <div class="bitem__icon">
+            <h3>Душевые и ограждения</h3>
+            <p>
+              Уголки, двери и перегородки - под стандартный проём или по вашим
+              размерам.
+            </p>
+          </article>
+
+          <article class="product-card fade">
+            <div class="product-card__icon">
               <svg viewBox="0 0 24 24">
-                <rect x="3" y="9" width="18" height="6" rx="1" />
-                <path d="M7 9v3M11 9v3M15 9v3" />
+                <rect x="6" y="3" width="12" height="16" rx="3" />
+                <path d="M14 6l-5 7" />
               </svg>
             </div>
-            <h3>Индивидуальные<br />решения</h3>
-          </div>
-          <div class="bitem">
-            <div class="bitem__icon">
+            <h3>Зеркала</h3>
+            <p>
+              Над раковиной или во всю стену - по вашим размерам, с полками и
+              хранением.
+            </p>
+          </article>
+
+          <article class="product-card fade">
+            <div class="product-card__icon">
               <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="8" r="3.5" />
-                <path d="M5 20c1-4 4-6 7-6s6 2 7 6" />
+                <circle cx="12" cy="4" r="1" />
+                <path d="M12 5v7a4 4 0 0 0 8 0v-1" />
               </svg>
             </div>
-            <h3>Опытная<br />установка</h3>
-          </div>
-          <div class="bitem">
-            <div class="bitem__icon">
-              <svg viewBox="0 0 24 24">
-                <path d="m12 3 7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6Z" />
-                <path d="m9 12 2 2 4-4" />
-              </svg>
-            </div>
-            <h3>Гарантия<br />на продукцию</h3>
-          </div>
+            <h3>Аксессуары</h3>
+            <p>
+              Дозаторы, полотенцедержатели, полки и держатели - завершают
+              интерьер.
+            </p>
+          </article>
+        </div>
+
+        <div class="product__cta fade">
+          <a href="#contacts-offer" class="btn"
+            >Рассчитать комплект
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- БЛОК 4. СБОРКА МЕБЕЛИ -->
-    <section class="furniture soft-top" id="furniture">
-      <div class="wrap split fade">
-        <div>
-          <h2>Собираем мебель для ванной</h2>
-          <p class="split__lead">
-            Собственное производство: корпусная мебель из влагостойких
-            материалов — готовые линейки и изготовление под ваши размеры.
-          </p>
-          <ul class="flist">
-            <li>Тумбы, пеналы и шкафы над инсталляцией</li>
-            <li>
-              Изготовление по вашим размерам: учтём ниши, коммуникации и
-              геометрию комнаты
-            </li>
-            <li>Влагостойкие корпусные материалы и надёжная фурнитура</li>
-            <li>Подбираем фактуру и цвет под интерьер вашей ванной</li>
-          </ul>
-          <div class="hotoffer">
-            <span class="hotoffer__tag">Горячее предложение</span>
-            <p>
-              К любой тумбе, пеналу или шкафу над инсталляцией — раковина со
-              скидкой 30%. Скидка действует только на раковину.
-            </p>
-            <a class="btn" href="#contacts">Получить скидку</a>
-          </div>
-          <a class="btn" href="#contacts"
-            >Рассчитать мебель <span class="arr">→</span></a
+    <section class="furniture" id="furniture">
+      <div class="wrap">
+        <div class="split">
+          <!-- СЛАЙД-ШОУ: чтобы добавить фото - вставь ещё один <figure>
+             внутрь .showcase__track, чтобы убрать - удали его. JS подхватит сам. -->
+          <div
+            class="showcase fade"
+            aria-label="Фотографии нашей мебели и шоурума"
           >
-        </div>
-        <div
-          class="split__media split__media--furniture"
-          role="img"
-          aria-label="Тумба для ванной OMI из ореха с белой столешницей и встроенной раковиной"
-        >
-          <span class="sticker" aria-hidden="true">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M50 2 L58.8 37.9 L95.7 35.2 L64.3 54.6 L78.2 88.8 L50 65 L21.8 88.8 L35.7 54.6 L4.3 35.2 L41.2 37.9 Z"
-              />
-            </svg>
-            <b>−30% на раковину</b>
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- БЛОК 5. САЛОНЫ -->
-    <section class="salon soft-top" id="salons">
-      <div class="wrap split fade">
-        <div
-          class="split__media split__media--salon"
-          role="img"
-          aria-label="Шоурум OMI: раковины на деревянных постаментах, ванна и зеркала с подсветкой"
-        >
-          <span class="sticker" aria-hidden="true">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M50 2 L58.8 37.9 L95.7 35.2 L64.3 54.6 L78.2 88.8 L50 65 L21.8 88.8 L35.7 54.6 L4.3 35.2 L41.2 37.9 Z"
-              />
-            </svg>
-            <b>Раковина в подарок</b>
-          </span>
-        </div>
-        <div>
-          <h2>Салоны — приезжайте, чтобы увидеть и оценить вживую</h2>
-          <p class="split__lead">
-            В шоурумах OMI вы можете купить всё для ванной по отдельности или
-            готовым комплектом. Приезжайте посмотреть качество, размеры и
-            сочетания вживую.
-          </p>
-          <ul class="slist">
-            <li>Раковины и смесители</li>
-            <li>Ванны и душевые</li>
-            <li>Зеркала и освещение</li>
-            <li>Унитазы и инсталляции</li>
-            <li>Готовая мебель</li>
-            <li>Аксессуары и текстиль</li>
-          </ul>
-          <div class="hotoffer">
-            <span class="hotoffer__tag">Полный комплект</span>
-            <p>
-              Мебель и сантехника одним пакетом: раковина в подарок или скидка
-              на комплект, а на остальную сантехнику — дополнительная скидка.
-            </p>
-            <a class="btn" href="#contacts">Получить скидку</a>
-          </div>
-          <a class="btn" href="#contacts"
-            >Связаться с менеджером <span class="arr">→</span></a
-          >
-          <p class="salon__note">
-            Владивосток · ежедневно 10:00–20:00<br />
-            ул. Светланская, 00 · ул. Русская, 00<br />
-            <a
-              class="salon__map"
-              href="https://go.2gis.com/t7h9r"
-              target="_blank"
-              rel="noopener"
-              >Открыть в 2ГИС →</a
+            <div class="showcase__track">
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/furniture.png"
+                  alt="Тумба «Нежность», производство OMI"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Тумба «Нежность»</figcaption>
+              </figure>
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/project-1.png"
+                  alt="Ванная комната в ЖК «Юпитер», мебель OMI"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>ЖК «Юпитер» - мебель на объекте</figcaption>
+              </figure>
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/project-2.png"
+                  alt="Ванная комната 7,4 м² в ЖК «Сопка»"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>ЖК «Сопка» - 7,4 м²</figcaption>
+              </figure>
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/project-3.png"
+                  alt="Компактная ванная комната с пеналом и угловым душем"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Компакт: пенал и угловой душ</figcaption>
+              </figure>
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/promo.png"
+                  alt="Комплект: тумба и раковина OMI"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Комплект месяца: тумба + раковина</figcaption>
+              </figure>
+            </div>
+            <button
+              class="showcase__btn showcase__btn--prev"
+              aria-label="Предыдущее фото"
             >
-          </p>
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button
+              class="showcase__btn showcase__btn--next"
+              aria-label="Следующее фото"
+            >
+              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
+            </button>
+            <div class="showcase__dots"></div>
+          </div>
+
+          <div class="split__text fade">
+            <h2>Каждый сантиметр работает</h2>
+            <p class="split__lead">
+              Мы не просто собираем шкафы - мы проектируем наполнение под ваши
+              привычки: что лежит в ящиках и шкафах, куда выезжают корзины и что
+              прячется в нише.
+            </p>
+            <ul class="flist">
+              <li>
+                Наполнение под ваши сценарии: выдвижные корзины, органайзеры и
+                полки. Всё имеет своё место.
+              </li>
+              <li>
+                Фурнитура с доводчиками и направляющие под нагрузку: дверцы не
+                хлопают, ящики не провисают
+              </li>
+              <li>
+                Корпуса рассчитаны на влажную зону: не боятся пара, брызг и
+                ежедневной уборки
+              </li>
+            </ul>
+            <div class="furniture__cta">
+              <a href="#contacts-offer" class="btn"
+                >Рассчитать мебель
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 6. ПРОЕКТЫ + ФАКТЫ + КАК МЫ РАБОТАЕМ -->
-    <section class="projects soft-top" id="projects">
+    <!-- БЛОК 5: САЛОНЫ - одна сцена -->
+    <section id="salons" class="salon">
       <div class="wrap">
-        <h2>Наши проекты</h2>
-        <p class="projects__lead">
-          Реальные ванные комнаты, созданные для жизни. Вдохновляйтесь и
-          находите своё решение.
-        </p>
-      </div>
+        <div class="salon-scene fade">
+          <!-- Видео-луп материалов -->
+          <video
+            class="salon-scene__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="assets/img/salon.png"
+            aria-hidden="true"
+          >
+            <source
+              src="assets/video/0_Bathroom_Sink_1280x720.mp4"
+              type="video/mp4"
+            />
+          </video>
 
-      <div class="carousel fade" id="projectsCarousel">
-        <div class="carousel__viewport">
-          <div class="carousel__track">
-            <article class="pcard pcard--1">
-              <div
-                class="pcard__media"
-                role="img"
-                aria-label="Ванная 5,8 м², минимализм, орех и травертин"
-              ></div>
-              <div class="pcard__meta">
-                <b>5,8 м²</b><span>Минимализм · орех и травертин</span>
-              </div>
-            </article>
-            <article class="pcard pcard--2">
-              <div
-                class="pcard__media"
-                role="img"
-                aria-label="Ванная 7,4 м², сканди, дуб и светлая керамика"
-              ></div>
-              <div class="pcard__meta">
-                <b>7,4 м²</b><span>Сканди · дуб и светлая керамика</span>
-              </div>
-            </article>
-            <article class="pcard pcard--3">
-              <div
-                class="pcard__media"
-                role="img"
-                aria-label="Ванная 4,1 м², компакт, пенал и угловой душ"
-              ></div>
-              <div class="pcard__meta">
-                <b>4,1 м²</b><span>Компакт · пенал и угловой душ</span>
-              </div>
-            </article>
-            <article class="pcard pcard--1">
-              <div
-                class="pcard__media"
-                role="img"
-                aria-label="Ванная 6,2 м², классика, орех и латунь"
-              ></div>
-              <div class="pcard__meta">
-                <b>6,2 м²</b><span>Классика · орех и латунь</span>
-              </div>
-            </article>
-            <article class="pcard pcard--2">
-              <div
-                class="pcard__media"
-                role="img"
-                aria-label="Ванная 9,5 м², лофт, бетон и чёрная сталь"
-              ></div>
-              <div class="pcard__meta">
-                <b>9,5 м²</b><span>Лофт · бетон и чёрная сталь</span>
-              </div>
-            </article>
-            <article class="pcard pcard--3">
-              <div
-                class="pcard__media"
-                role="img"
-                aria-label="Ванная 3,8 м², компакт, светлый дуб и хром"
-              ></div>
-              <div class="pcard__meta">
-                <b>3,8 м²</b><span>Компакт · светлый дуб и хром</span>
-              </div>
-            </article>
-            <article class="pcard pcard--1">
-              <div
-                class="pcard__media"
-                role="img"
-                aria-label="Ванная 8,1 м², минимализм, травертин и чёрная сталь"
-              ></div>
-              <div class="pcard__meta">
-                <b>8,1 м²</b><span>Минимализм · травертин и чёрная сталь</span>
-              </div>
-            </article>
-            <article class="pcard pcard--2">
-              <div
-                class="pcard__media"
-                role="img"
-                aria-label="Ванная 5,2 м², сканди, дуб и белая керамика"
-              ></div>
-              <div class="pcard__meta">
-                <b>5,2 м²</b><span>Сканди · дуб и белая керамика</span>
-              </div>
-            </article>
-          </div>
-        </div>
-        <div class="carousel__nav">
-          <button class="carousel__btn" data-dir="prev" aria-label="Предыдущие">
-            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
-          </button>
-          <button class="carousel__btn" data-dir="next" aria-label="Следующие">
-            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
-          </button>
-        </div>
-      </div>
+          <div class="salon-scene__in">
+            <!-- Левая колонка: приглашение -->
+            <div class="salon-scene__intro">
+              <span class="salon-scene__tag">Шоурум во Владивостоке</span>
+              <h2>Приходите - покажем всё вживую</h2>
+              <p class="salon-scene__lead">
+                Мебель нашего производства и материалы, которые можно потрогать,
+                открыть и сравнить.
+              </p>
+            </div>
 
-      <div class="wrap">
-        <div class="facts fade">
-          <div class="facts__grid">
-            <div class="fact">
-              <b>120+</b><span>ванных комнат собрано</span>
-            </div>
-            <div class="fact">
-              <b>7 лет</b><span>гарантии на мебель и монтаж</span>
-            </div>
-            <div class="fact"><b>2</b><span>салона во Владивостоке</span></div>
-            <div class="fact">
-              <b>1 день</b><span>на расчёт сметы решения</span>
+            <!-- Правая колонка: стеклянная карточка -->
+            <div class="salon-scene__card">
+              <ul class="exp">
+                <li class="exp__item">
+                  <span class="exp__num">1</span>
+                  <div>
+                    <h3>Инсталляция в комплекте</h3>
+                    <p>Собрана в шоуруме - посмотрите, как она устроена</p>
+                  </div>
+                </li>
+                <li class="exp__item">
+                  <span class="exp__num">2</span>
+                  <div>
+                    <h3>Мебель нашего производства</h3>
+                    <p>Собранная, в интерьере - посмотрите вживую</p>
+                  </div>
+                </li>
+                <li class="exp__item">
+                  <span class="exp__num">3</span>
+                  <div>
+                    <h3>Материалы и фактуры</h3>
+                    <p>Столешницы, фасады, керамика - потрогайте и сравните</p>
+                  </div>
+                </li>
+                <li class="exp__item">
+                  <span class="exp__num">4</span>
+                  <div>
+                    <h3>Дизайнер на месте</h3>
+                    <p>Спланирует наполнение под ваше пространство</p>
+                  </div>
+                </li>
+              </ul>
+
+              <hr class="salon-scene__divider" aria-hidden="true" />
+
+              <div class="salon-scene__meta">
+                <p class="salon-scene__place">Шоурум «Континент»</p>
+                <p class="salon-scene__addr">
+                  ул. Бородинская, 46/50, ТЦ «Континент», пав. 17
+                </p>
+                <p class="salon-scene__hours">Ежедневно, 9:00–18:00</p>
+                <a href="tel:+79021234567" class="salon-scene__phone"
+                  >+7 (966) 290-77-21</a
+                >
+              </div>
+
+              <a href="#" class="btn">Построить маршрут</a>
             </div>
           </div>
         </div>
-
-        <h3 class="projects__sub">Как мы работаем</h3>
-        <div class="tl fade">
-          <div class="tl__i">
-            <span class="tl__n">1</span>
-            <b>Заявка и консультация</b>
-            <p>
-              Уточняем задачу, сроки и бюджет, ориентируем по вариантам
-              решения.
-            </p>
-          </div>
-          <div class="tl__i">
-            <span class="tl__n">2</span>
-            <b>Замер</b>
-            <p>
-              Приезжаем на объект, снимаем точные размеры и особенности
-              коммуникаций.
-            </p>
-          </div>
-          <div class="tl__i">
-            <span class="tl__n">3</span>
-            <b>Проект и смета</b>
-            <p>
-              Собираем комплекс: мебель, сантехника, свет. Фиксируем смету в
-              договоре.
-            </p>
-          </div>
-          <div class="tl__i">
-            <span class="tl__n">4</span>
-            <b>Производство и подбор</b>
-            <p>
-              Мебель изготавливаем сами, сантехнику комплектуем со склада и из
-              шоурума.
-            </p>
-          </div>
-          <div class="tl__i">
-            <span class="tl__n">5</span>
-            <b>Доставка и монтаж</b>
-            <p>Привозим, устанавливаем, подключаем и убираем за собой.</p>
-          </div>
-          <div class="tl__i">
-            <span class="tl__n">6</span>
-            <b>Гарантия и поддержка</b>
-            <p>
-              7 лет гарантии на мебель и монтаж. На связи по любому вопросу.
-            </p>
-          </div>
-        </div>
-
-        <a class="btn" href="#contacts"
-          >Хочу так же <span class="arr">→</span></a
-        >
       </div>
     </section>
 
-    <!-- БЛОК 7. ТРАНСФОРМАЦИЯ -->
-    <section class="transform soft-top" id="solutions">
+    <!-- БЛОК 7: ГОТОВЫЕ РЕШЕНИЯ (мини-каталог, spotlight, тёмный) -->
+    <section id="solutions" class="solutions">
       <div class="wrap">
-        <h2>Из голых стен — в ванную,<br />в которой хочется жить</h2>
-        <p class="transform__lead">
-          Комплексное решение: берём на себя всё — от проекта до установки. Вы
-          приходите к нам с пустой комнатой, а получаете ванную, где уже есть
-          всё для комфортной жизни.
+        <h2 class="fade">Готовые решения для ванной комнаты</h2>
+        <p class="solutions__lead fade">
+          Не знаете, с чего начать - выберите готовый комплект, а мы адаптируем
+          размеры и материалы под ваше пространство.
         </p>
 
-        <div class="transform__grid fade">
+        <div class="carousel fade" id="solutions-carousel">
           <div
-            class="tcard tcard--before"
-            role="img"
-            aria-label="До: пустая ванная комната после ремонта, без мебели и сантехники"
+            class="carousel__mask carousel__mask--left"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="carousel__mask carousel__mask--right"
+            aria-hidden="true"
+          ></div>
+
+          <div class="carousel__stage" id="stage"></div>
+
+          <button
+            class="carousel__arrow carousel__arrow--prev"
+            type="button"
+            aria-label="Предыдущее решение"
           >
-            <span class="tcard__label">До</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button
+            class="carousel__arrow carousel__arrow--next"
+            type="button"
+            aria-label="Следующее решение"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <div class="carousel__dots" role="tablist"></div>
+        </div>
+
+        <div class="solutions__custom fade">
+          <p>Нужно другое решение? Соберём индивидуальное.</p>
+          <a href="#contacts-offer" class="btn">Рассчитать проект →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="wrap">
+        <h2 class="fade">Что говорят клиенты</h2>
+        <p class="reviews__lead fade">
+          Реальные отзывы тех, кто уже живёт с&nbsp;решением от&nbsp;OMI.
+        </p>
+
+        <div class="carousel fade">
+          <div class="carousel__viewport">
+            <div class="carousel__track">
+              <article class="rev rev_1">
+                <div class="rev__header">
+                  <div class="rev__ava ava--1" aria-hidden="true">ИК</div>
+                  <div class="rev__author">
+                    <b>Игорь Кладенок</b>
+                  </div>
+                </div>
+                <div class="rev__rating">
+                  <div class="rev__stars" aria-label="Оценка 5 из 5">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rev__date">22 сентября 2026</span>
+                </div>
+                <blockquote class="rev__text">
+                  Рекомендую к посещению данный магазин сантехники! Подобрали
+                  качевенный вариант, с учётом бюджета для комплектации ванной.
+                  Сделали приятную скидку, гарантия на товар! Доставка пришла
+                  быстрее огововренных сроков!
+                </blockquote>
+                <button class="rev__readmore" type="button">
+                  Читать полностью
+                </button>
+              </article>
+
+              <article class="rev rev_2">
+                <div class="rev__header">
+                  <div class="rev__ava ava--2" aria-hidden="true">ИХ</div>
+                  <div class="rev__author">
+                    <b>Игорь Хаботкин</b>
+                  </div>
+                </div>
+                <div class="rev__rating">
+                  <div class="rev__stars" aria-label="Оценка 5 из 5">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rev__date">11 сентября 2026</span>
+                </div>
+                <blockquote class="rev__text">
+                  Сделали шкаф в санузел. Супер
+                </blockquote>
+              </article>
+
+              <article class="rev rev_3">
+                <div class="rev__header">
+                  <div class="rev__ava ava--3" aria-hidden="true">АП</div>
+                  <div class="rev__author">
+                    <b>Альбина Панченко</b>
+                  </div>
+                </div>
+                <div class="rev__rating">
+                  <div class="rev__stars" aria-label="Оценка 5 из 5">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rev__date">30 августа 2026</span>
+                </div>
+                <blockquote class="rev__text">
+                  Хороший магазин, зеркал и сантехники, большой выбор, есть
+                  возможность заказать по своим пожеланиям! Грамотные
+                  консультанты, подскажут , новые технические возможности.
+                </blockquote>
+                <button class="rev__readmore" type="button">
+                  Читать полностью
+                </button>
+              </article>
+
+              <article class="rev rev_4">
+                <div class="rev__header">
+                  <div class="rev__ava ava--4" aria-hidden="true">КБ</div>
+                  <div class="rev__author">
+                    <b>Кристина Байкова</b>
+                  </div>
+                </div>
+                <div class="rev__rating">
+                  <div class="rev__stars" aria-label="Оценка 5 из 5">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rev__date">24 августа 2026</span>
+                </div>
+                <blockquote class="rev__text">
+                  Ребята молодцы! Выше всяких похвал! Качество на высоте,
+                  упаковка отличная! Заказывали тумбу, раковину, пенал с
+                  корзиной.
+                </blockquote>
+              </article>
+
+              <article class="rev rev_5">
+                <div class="rev__header">
+                  <div class="rev__ava ava--5" aria-hidden="true">ЕМ</div>
+                  <div class="rev__author">
+                    <b>Елена Малая</b>
+                  </div>
+                </div>
+                <div class="rev__rating">
+                  <div class="rev__stars" aria-label="Оценка 5 из 5">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rev__date">5 августа 2025</span>
+                </div>
+                <blockquote class="rev__text">
+                  Хочу сказать огромное спасибо Павлу и Константину! Подобрали
+                  всю сантехнику, аксесуары все просто замечательно, и цвет и
+                  стиль и удобство в использовании. Также для меня была
+                  подобрана вся бытовая техника, соблюдены размеры,
+                  рекомендованные дизайн-проектом. И еще заказывала у ни зеркала
+                  -отличные, я очень довольна, цены приемлемы, доставка быстрая,
+                  все безупречно и хлопот с моей стороны -минимум😊 Спасибо
+                  огромное за внимание к покупателю😊
+                </blockquote>
+                <button class="rev__readmore" type="button">
+                  Читать полностью
+                </button>
+              </article>
+
+              <article class="rev rev_6">
+                <div class="rev__header">
+                  <div class="rev__ava ava--6" aria-hidden="true">ДС</div>
+                  <div class="rev__author">
+                    <b>Денис Самарин</b>
+                  </div>
+                </div>
+                <div class="rev__rating">
+                  <div class="rev__stars" aria-label="Оценка 5 из 5">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rev__date">12 декабря 2024</span>
+                </div>
+                <blockquote class="rev__text">
+                  Магазин показал себя с хорошей стороны. Изначально купили
+                  мойку, смеситель, дозатор на кухню. При том, что цены были и
+                  так одними из самых выгодных, нам еще сделали скидку. Затем
+                  еще приобрели душевую стойку. Через год потек смеситель на
+                  кухне, сначала расстроились, но написав в магазин нам поменяли
+                  неисправную деталь, выехав к нам домой, в ТОТ ЖЕ ДЕНЬ! Большое
+                  спасибо, однозначно рекомендую!
+                </blockquote>
+                <button class="rev__readmore" type="button">
+                  Читать полностью
+                </button>
+              </article>
+
+              <article class="rev rev_7">
+                <div class="rev__header">
+                  <div class="rev__ava ava--7" aria-hidden="true">ВЕ</div>
+                  <div class="rev__author">
+                    <b>Влад Ершов</b>
+                  </div>
+                </div>
+                <div class="rev__rating">
+                  <div class="rev__stars" aria-label="Оценка 5 из 5">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rev__date">28 июня 2023</span>
+                </div>
+                <blockquote class="rev__text">
+                  Огромное спасибо за профессиональное обслуживание,
+                  оперативность в работе, отзывчивость и внимательное отношение
+                  к клиентам.
+                </blockquote>
+              </article>
+            </div>
           </div>
-          <div
-            class="tcard tcard--after"
-            role="img"
-            aria-label="После: та же ванная с комплексным решением OMI — тумба, зеркало с подсветкой, унитаз, душевое ограждение"
-          >
-            <span class="tcard__label">После</span>
-            <span class="sticker" aria-hidden="true">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M50 2 L58.8 37.9 L95.7 35.2 L64.3 54.6 L78.2 88.8 L50 65 L21.8 88.8 L35.7 54.6 L4.3 35.2 L41.2 37.9 Z"
+
+          <div class="carousel__nav">
+            <button
+              class="carousel__btn carousel__btn--prev"
+              aria-label="Предыдущий отзыв"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <polyline
+                  points="15 18 9 12 15 6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
               </svg>
-              <b>−% на сантехнику</b>
-            </span>
-          </div>
-          <div class="transform__arrow">
-            <img src="assets/icons/right-arrow.svg" alt="" />
-          </div>
-        </div>
-
-        <a class="btn" href="#contacts"
-          >Рассчитать моё решение <span class="arr">→</span></a
-        >
-      </div>
-    </section>
-
-    <!-- БЛОК 8. ОТЗЫВЫ -->
-    <section class="reviews soft-top" id="reviews">
-      <div class="wrap">
-        <h2>Что говорят клиенты</h2>
-        <p class="reviews__lead">
-          Реальные отзывы тех, кто уже живёт с ванной от OMI.
-        </p>
-      </div>
-
-      <div class="carousel fade" id="reviewsCarousel">
-        <div class="carousel__viewport">
-          <div class="carousel__track">
-            <div class="rev">
-              <blockquote>
-                «Как дизайнеру интерьеров мне важна точность до миллиметра. OMI
-                сделали мебель чётко по моим чертежам, без единой правки на
-                монтаже.»
-              </blockquote>
-              <div class="rev__who">
-                <span class="rev__ava ava--1"></span>
-                <div><b>Елена В.</b><span>Дизайнер интерьеров</span></div>
-              </div>
-            </div>
-            <div class="rev">
-              <blockquote>
-                «Ценю своё время. С OMI всё чётко: замер, смета, срок — всё как
-                обещали. Не пришлось ни разу выезжать на объект лично.»
-              </blockquote>
-              <div class="rev__who">
-                <span class="rev__ava ava--2"></span>
-                <div><b>Дмитрий К.</b><span>IT-директор</span></div>
-              </div>
-            </div>
-            <div class="rev">
-              <blockquote>
-                «С двумя детьми главное — чтобы всё было под рукой и ничего не
-                ломалось. Тумба OMI пережила уже три года активной жизни без
-                единой царапины.»
-              </blockquote>
-              <div class="rev__who">
-                <span class="rev__ava ava--3"></span>
-                <div><b>Мария С.</b><span>Мама двоих детей</span></div>
-              </div>
-            </div>
-            <div class="rev">
-              <blockquote>
-                «Как архитектор работаю с подрядчиками, которые слышат задачу с
-                первого раза. OMI — из таких. Рекомендую клиентам без оговорок.»
-              </blockquote>
-              <div class="rev__who">
-                <span class="rev__ava ava--4"></span>
-                <div><b>Андрей П.</b><span>Архитектор</span></div>
-              </div>
-            </div>
-            <div class="rev">
-              <blockquote>
-                «В стоматологии важна стерильность и эргономика. Дома хочу того
-                же: всё на местах, ничего лишнего, легко убирать. OMI сделали
-                именно так.»
-              </blockquote>
-              <div class="rev__who">
-                <span class="rev__ava ava--5"></span>
-                <div><b>Ольга Н.</b><span>Стоматолог</span></div>
-              </div>
-            </div>
-            <div class="rev">
-              <blockquote>
-                «Запустил три объекта параллельно — все сданы в срок, смета ни
-                разу не изменилась. Для меня это редкость на рынке.»
-              </blockquote>
-              <div class="rev__who">
-                <span class="rev__ava ava--6"></span>
-                <div><b>Сергей Р.</b><span>Предприниматель</span></div>
-              </div>
-            </div>
-            <div class="rev">
-              <blockquote>
-                «Снимаю много и знаю цену хорошему свету. Зеркало OMI с
-                подсветкой — лучшее, что у меня было: мягкий, равномерный, без
-                теней.»
-              </blockquote>
-              <div class="rev__who">
-                <span class="rev__ava ava--7"></span>
-                <div><b>Анна Л.</b><span>Фотограф</span></div>
-              </div>
-            </div>
-            <div class="rev">
-              <blockquote>
-                «После 12-часовой смены важно, чтобы ванная расслабляла, а не
-                требовала ухода. Материалы OMI моются за минуту и выглядят как
-                новые.»
-              </blockquote>
-              <div class="rev__who">
-                <span class="rev__ava ava--8"></span>
-                <div><b>Игорь М.</b><span>Врач</span></div>
-              </div>
-            </div>
+            </button>
+            <button
+              class="carousel__btn carousel__btn--next"
+              aria-label="Следующий отзыв"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <polyline
+                  points="9 18 15 12 9 6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-        <div class="carousel__nav">
-          <button class="carousel__btn" data-dir="prev" aria-label="Предыдущие">
-            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
-          </button>
-          <button class="carousel__btn" data-dir="next" aria-label="Следующие">
-            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" /></svg>
-          </button>
-        </div>
-      </div>
 
-      <div class="wrap">
-        <p class="reviews__src">
-          Все отзывы —
-          <a href="about:blank" target="_blank" rel="noopener">Google Maps</a> и
-          <a href="about:blank" target="_blank" rel="noopener">2GIS</a>
+        <p class="reviews__src fade">
+          Все отзывы&nbsp;&mdash;
+          <a
+            href="https://2gis.ru/vladivostok/search/omi%20%D0%B2%D0%BB%D0%B0%D0%B4%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D0%BE%D0%BA/firm/70000001066591022/131.9347%2C43.16821/tab/reviews?m=131.934716%2C43.168227%2F17.91"
+            target="_blank"
+            >2GIS</a
+          >
         </p>
       </div>
     </section>
 
-    <!-- БЛОК 9. ВОПРОС-ОТВЕТ -->
     <section class="faq soft-top" id="faq">
       <div class="wrap">
-        <h2>Вопросы и ответы</h2>
-        <p class="faq__lead">Собрали то, что клиенты спрашивают чаще всего.</p>
+        <h2 class="fade">Вопросы и ответы</h2>
+        <p class="faq__lead fade">
+          Собрали то, что клиенты спрашивают чаще всего.
+        </p>
+
         <div class="faq__list fade">
           <details>
-            <summary>Сколько занимает комплексный проект ванной?</summary>
+            <summary>
+              Сколько занимает комплексный проект ванной комнаты?
+            </summary>
             <p>
-              В среднем 45 дней от замера до установки: проект и смета — около
-              недели, производство и комплектация — 3–4 недели, монтаж — 2–3
+              В среднем 45 дней от замера до установки: проект и расчёт - около
+              недели, производство и комплектация - 3–4 недели, монтаж - 2–3
               дня. Точные сроки фиксируем в договоре.
             </p>
           </details>
+
           <details>
             <summary>
               Можно заказать только мебель или только сантехнику?
@@ -664,24 +1055,27 @@
               только зеркала.
             </p>
           </details>
+
           <details>
             <summary>
-              У меня маленькая или нестандартная ванная — справитесь?
+              У меня маленькая или нестандартная ванная комната - справитесь?
             </summary>
             <p>
               Это наш основной сценарий: мебель изготавливается по вашим
               размерам с учётом ниш, труб и геометрии комнаты. Компактные
-              санузлы — частый кейс в портфолио.
+              санузлы - частый кейс в портфолио.
             </p>
           </details>
+
           <details>
-            <summary>Как формируется цена и может ли измениться смета?</summary>
+            <summary>Как формируется цена и может ли она измениться?</summary>
             <p>
-              В смету входят мебель, сантехника, зеркала и аксессуары, доставка
+              В расчёт входят мебель, сантехника, зеркала и аксессуары, доставка
               и монтаж. После подписания договора сумма не меняется: все
               изменения согласуются отдельно и письменно.
             </p>
           </details>
+
           <details>
             <summary>Что входит в доставку и монтаж?</summary>
             <p>
@@ -690,170 +1084,201 @@
               только принять работу.
             </p>
           </details>
+
           <details>
             <summary>Какая гарантия на мебель и сантехнику?</summary>
             <p>
               7 лет гарантии на мебель и монтажные работы. На сантехнику и
-              комплектующие действует гарантия производителей — документы
+              комплектующие действует гарантия производителей - документы
               передаём вместе с проектом.
             </p>
           </details>
         </div>
-        <p class="faq__bridge">
-          Не нашли ответ? <a href="#contacts">Спросите менеджера напрямую →</a>
+
+        <p class="faq__bridge fade">
+          Не нашли ответ?
+          <a href="#contacts-offer">Спросите менеджера напрямую →</a>
         </p>
       </div>
     </section>
 
-    <!-- БЛОК 10. ФОРМА СВЯЗИ -->
-    <section class="ctaform soft-top" id="contacts">
-      <div class="wrap fade">
-        <h2>Свяжитесь с нами</h2>
-        <p class="ctaform__lead">
-          Просто имя и телефон — менеджер свяжется с вами сам, ответит на
+    <!-- ПРОМО-БЛОК: подогрев перед формой (в воронке - между FAQ и формой) -->
+    <section class="offer" id="offer">
+      <div class="wrap">
+        <div class="offer__box fade">
+          <span class="offer__tag">Специальное предложение</span>
+          <h2 id="contacts-offer">При заказе тумбы - <b>скидка 30% на раковину</b></h2>
+          <p>
+            Бонус к основной покупке: скидка действует на раковину, когда в
+            заказе есть тумба нашего производства. Цену фиксируем в договоре.
+          </p>
+          <a href="#contacts" class="btn">Получить скидку</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ctaform" id="contacts">
+      <div class="wrap">
+        <h2 class="fade">Свяжитесь с нами</h2>
+        <p class="ctaform__lead fade">
+          Просто имя и телефон - менеджер свяжется с вами сам, ответит на
           вопросы и поможет с расчётом.
         </p>
-        <form class="ctaform__form" id="leadForm">
-          <input type="text" name="name" placeholder="Имя" required />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="+7 (___) ___-__-__"
-            required
-          />
-          <button class="btn" type="submit" id="submitBtn">
-            Отправить <span class="arr">→</span>
-          </button>
+
+        <form class="ctaform__form fade" action="#" method="post" novalidate>
+          <div class="contact__field">
+            <div class="contact__control">
+              <input
+                type="text"
+                name="name"
+                placeholder="Ваше имя"
+                autocomplete="given-name"
+                maxlength="50"
+              />
+              <span class="field-valid" aria-hidden="true">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+            </div>
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+
+          <div class="contact__field">
+            <div class="contact__control">
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+7 (___) ___-__-__"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="22"
+              />
+              <span class="field-valid" aria-hidden="true">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+            </div>
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+
+          <button type="submit" class="btn">Отправить</button>
         </form>
-        <div class="consent-group">
+
+        <div class="consent-group fade">
           <label class="consent">
-            <input type="checkbox" id="consentPd" required />
+            <input type="checkbox" name="pdn" checked />
             <span class="consent__box"></span>
-            <span
+            <span class="consent__text"
               >Согласен на обработку персональных данных в соответствии с
-              <a href="about:blank" target="_blank" rel="noopener"
-                >политикой конфиденциальности</a
-              ></span
+              <a href="#">политикой конфиденциальности</a></span
             >
           </label>
-          <label class="consent">
-            <input type="checkbox" id="consentInfo" checked />
-            <span class="consent__box"></span>
-            <span
-              >Согласен на получение информационных сообщений о новинках и
-              акциях</span
-            >
-          </label>
+          <span class="consent-error" aria-live="polite"></span>
         </div>
-        <div class="form-ok" id="formOk" hidden>
+
+        <div class="form-ok fade" style="display: none">
           Заявка отправлена! Менеджер OMI свяжется с вами в рабочее время.
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 11. ФУТЕР -->
     <footer class="footer">
       <div class="wrap">
-        <div class="footer__grid">
-          <div class="footer__col">
-            <div class="footer__brand">
-              <svg
-                viewBox="0 0 354.3704 354.3704"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  fill="#f1da8d"
-                  cx="177.1852"
-                  cy="177.1852"
-                  r="177.1852"
-                />
-                <path
-                  fill="#161513"
-                  d="M182.8429,180.7277v76.524c0,.2734-.2216.495-.495.495h-10.9777c-.2734,0-.495-.2216-.495-.495v-94.8162c0-.2734.2216-.495.495-.495h17.7469c.2146,0,.4048.1383.4709.3425l23.6292,72.9593c.6931,2.0813,1.2033,3.6972,1.5285,4.8455.0938.3316.1813.6514.2624.9594.131.4974.8381.4866.9579-.0136.1892-.7895.3786-1.5275.5683-2.214.3465-1.2571.7155-2.4493,1.1057-3.5773l24.4725-72.9642c.0676-.2017.2566-.3376.4693-.3376h17.8159c.2734,0,.495.2216.495.495v94.8162c0,.2734-.2216.495-.495.495h-11.6281c-.2734,0-.495-.2216-.495-.495v-77.0594c0-.5783-.8187-.687-.9713-.1293-.023.0839-.0461.1678-.0693.2518-.3902,1.4095-.8028,2.808-1.2358,4.1952l-24.5373,72.8996c-.0678.2014-.2566.3371-.4691.3371h-11.5788c-.2138,0-.4035-.1373-.4702-.3404l-23.9535-72.8963c-.434-1.2136-.8243-2.5143-1.1707-3.9025h0c-.1417-.5665-.9756-.4637-.9756.1202Z"
-                />
-                <path
-                  fill="#161513"
-                  d="M271.3564,257.2571v-94.8268c0-.2704.2192-.4897.4897-.4897h12.0288c.2704,0,.4897.2192.4897.4897v94.8268c0,.2704-.2192.4897-.4897.4897h-12.0288c-.2704,0-.4897-.2192-.4897-.4897Z"
-                />
-                <circle fill="#161513" cx="277.8604" cy="143.2028" r="6.8387" />
-                <path
-                  fill="#161513"
-                  d="M71.0193,166.8705c.251-13.098,4.2157-25.2857,10.8811-35.5588-2.1749-2.3999-4.3902-4.7657-6.6886-7.069-.8027-.8044-1.6028-1.609-2.3988-2.4155-13.6314,19.3821-18.9553,45.0295-10.767,71.7737,6.4728,21.1412,29.117,44.2211,50.1593,51.0081,19.5423,6.3032,38.5276,5.3367,54.9735-.8267v-13.9046c-8.7735,4.034-18.5532,6.2548-28.8613,6.1735-37.5992-.2968-68.0185-31.5872-67.2981-69.1806Z"
-                />
-                <path
-                  fill="#161513"
-                  d="M139.3221,87.4975c-18.7552-.1041-36.0334,6.1943-49.7854,16.8314,3.0327,3.0711,6.0754,6.1239,9.0201,9.2762,11.1661-8.2584,24.9534-13.1753,39.8865-13.2661,37.2944-.2268,68.0234,30.0906,68.2775,67.3848.0537,7.8834-1.2398,15.4567-3.6593,22.5069l5.9233,17.9318c6.9077-12.0931,10.7794-26.144,10.571-41.1161-.6091-43.7512-36.4788-79.306-80.2336-79.5488Z"
-                />
-                <path
-                  fill="#161513"
-                  d="M194.5519,226.6015l-4.5569-13.7953c-1.0672,1.2222-2.1773,2.4057-3.3283,3.5482v16.8592c2.7675-2.0382,5.4032-4.245,7.8852-6.6122Z"
-                />
-              </svg>
-              <b>OMI</b>
-            </div>
-            <p class="footer__tag">Пространство, в котором начинается день.</p>
-            <small class="footer__req"
-              >ИП Кашкин Павел Алексеевич<br />690091, г. Владивосток, ул.
-              Светланская, 00</small
-            >
-            <small class="footer__copyright"
-              >© 2026 ИП Кашкин П.А. Все права защищены.</small
-            >
+        <div class="footer__top">
+          <div class="footer__brand">
+            <img
+              class="footer__logo"
+              src="assets/icons/omi_logo.svg"
+              alt="OMI - мебель для ванной комнаты"
+            />
+            <p class="footer__desc">
+              Сантехника и мебель для ванной комнаты во Владивостоке.
+              Собственное производство, индивидуальные решения.
+            </p>
+            <p class="footer__addr">
+              Владивосток, ул. Бородинская 46/50,<br />
+              ТЦ «Континент», пав. 17<br />
+              ежедневно 9:00–18:00
+            </p>
           </div>
+
           <div class="footer__col">
             <h4>Разделы</h4>
             <a href="#furniture">Мебель</a>
             <a href="#salons">Салоны</a>
-            <a href="#projects">Проекты</a>
             <a href="#reviews">Отзывы</a>
             <a href="#faq">Вопросы</a>
           </div>
+
           <div class="footer__col">
-            <h4>Контакты</h4>
-            <a href="tel:+79021234567">+7 (902) 123-45-67</a>
-            <a href="mailto:info@omi.ru">info@omi.ru</a>
-            <p>Владивосток<br />ежедневно 10:00–20:00</p>
+            <h4>Мы на связи</h4>
+            <a href="tel:+79021234567">+7 (966) 290-77-21</a>
+            <a href="mailto:managerpm01@yandex.ru">managerpm01@yandex.ru</a>
           </div>
-          <div class="footer__col">
-            <h4>Правовая информация</h4>
-            <a href="about:blank" target="_blank" rel="noopener"
-              >Политика конфиденциальности</a
+        </div>
+
+        <div class="footer__bottom">
+          <div class="footer__legal">
+            <span>ИП Кашкин Павел Алексеевич</span>
+            <span>ИНН 252411539689</span>
+            <span>ОГРНИП 322253600027572</span>
+            <span
+              >Приморский край, Надеждинский район, ул. Приморская, д. 1, кв.
+              24</span
             >
-            <a href="about:blank" target="_blank" rel="noopener"
-              >Согласие на обработку ПДн</a
-            >
-            <a href="about:blank" target="_blank" rel="noopener"
-              >Публичная оферта</a
-            >
-            <small class="footer__req"
-              >Сайт использует cookie для улучшения работы.<br />Продолжая
-              использовать сайт, вы соглашаетесь с политикой cookie.</small
-            >
+          </div>
+
+          <div class="footer__legal">
+            <a href="politika.html">Политика обработки персональных данных</a>
+            <a href="soglasie.html">Согласие на обработку данных</a>
+            <a href="cookies.html">Политика использования файлов cookie</a>
+          </div>
+
+          <div class="footer__bottomline">
+            <p class="footer__copyright">© OMI, 2026. Все права защищены.</p>
+            <p class="footer__disclaimer">
+              Информация на сайте не является публичной офертой.
+            </p>
           </div>
         </div>
       </div>
     </footer>
-
-    <!-- Sticky-CTA -->
-    <div class="mcta" id="mcta">
-      <a class="btn" href="#contacts"
-        >Рассчитать решение <span class="arr">→</span></a
-      >
+<!-- COOKIE-БАННЕР -->
+<div class="cookie" id="cookie" hidden>
+  <div class="cookie__inner">
+    <p class="cookie__text">
+      Мы используем файлы cookie для корректной работы сайта и улучшения сервиса.
+      Подробнее - в
+      <a href="cookies.html" class="cookie__link">политике использования файлов cookie</a>.
+    </p>
+    <div class="cookie__actions">
+      <button class="cookie__btn cookie__btn--accept" id="cookieAccept" type="button">Принять</button>
+      <button class="cookie__btn cookie__btn--reject" id="cookieReject" type="button">Отклонить</button>
     </div>
+  </div>
+</div>
 
-    <!-- Cookie-баннер -->
-    <div class="cookie-banner" id="cookieBanner">
-      <div class="cookie-banner__in">
-        <p>
-          Мы используем cookie для улучшения работы сайта. Продолжая
-          использовать сайт, вы соглашаетесь с
-          <a href="about:blank" target="_blank" rel="noopener"
-            >политикой cookie</a
-          >.
-        </p>
-        <button class="btn" id="cookieAccept">Принять</button>
-      </div>
-    </div>
+
 
     <script src="assets/js/script.js"></script>
   </body>
