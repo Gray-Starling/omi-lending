@@ -638,3 +638,54 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.form-ok').style.display = 'block';
     });
   })();
+
+/* ============================================================
+COOKIE-БАННЕР
+============================================================ */
+(function () {
+  var banner = document.getElementById('cookie');
+  var acceptBtn = document.getElementById('cookieAccept');
+  var rejectBtn = document.getElementById('cookieReject');
+  var STORAGE_KEY = 'omi_cookie_consent'; // 'accepted' | 'rejected'
+
+  if (!banner) return;
+
+  function hide() {
+    banner.classList.remove('is-visible');
+    setTimeout(function () {
+      banner.hidden = true;
+    }, 500);
+  }
+
+  var hasChoice = false;
+  try {
+    var stored = localStorage.getItem(STORAGE_KEY);
+    hasChoice = stored === 'accepted' || stored === 'rejected';
+  } catch (e) {
+    hasChoice = false;
+  }
+
+  if (!hasChoice) {
+    banner.hidden = false;
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        banner.classList.add('is-visible');
+      });
+    });
+  }
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function () {
+      try { localStorage.setItem(STORAGE_KEY, 'accepted'); } catch (e) {}
+      hide();
+    });
+  }
+
+  if (rejectBtn) {
+    rejectBtn.addEventListener('click', function () {
+      try { localStorage.setItem(STORAGE_KEY, 'rejected'); } catch (e) {}
+      hide();
+      // TODO: логика отказа (блокировка трекеров/аналитики) — доделывается отдельно
+    });
+  }
+})();
