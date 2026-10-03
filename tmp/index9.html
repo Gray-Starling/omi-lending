@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OMI — Вопросы и ответы</title>
+<meta name="description" content="OMI — комплексные решения для ванной комнаты во Владивостоке. Ответы на частые вопросы о мебели, сантехнике, сроках и гарантии.">
+<link rel="stylesheet" href="assets/css/style9.css">
+<link rel="preload" href="../fonts/Mulish/static/Mulish-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../fonts/Mulish/static/Mulish-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../fonts/Tenor_Sans/TenorSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../fonts/Sansation/Sansation-Regular.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body>
+
+<section class="faq soft-top" id="faq">
+  <div class="wrap">
+    <h2 class="fade">Вопросы и ответы</h2>
+    <p class="faq__lead fade">Собрали то, что клиенты спрашивают чаще всего.</p>
+
+    <div class="faq__list fade">
+      <details>
+        <summary>Сколько занимает комплексный проект ванной комнаты?</summary>
+        <p>В среднем 45 дней от замера до установки: проект и расчёт — около недели, производство и комплектация — 3–4 недели, монтаж — 2–3 дня. Точные сроки фиксируем в договоре.</p>
+      </details>
+
+      <details>
+        <summary>Можно заказать только мебель или только сантехнику?</summary>
+        <p>Да. Мы работаем и с комплексом, и с отдельными задачами: готовая мебель из шоурума, изготовление на заказ, только сантехника или только зеркала.</p>
+      </details>
+
+      <details>
+        <summary>У меня маленькая или нестандартная ванная комната — справитесь?</summary>
+        <p>Это наш основной сценарий: мебель изготавливается по вашим размерам с учётом ниш, труб и геометрии комнаты. Компактные санузлы — частый кейс в портфолио.</p>
+      </details>
+
+      <details>
+        <summary>Как формируется цена и может ли она измениться?</summary>
+        <p>В расчёт входят мебель, сантехника, зеркала и аксессуары, доставка и монтаж. После подписания договора сумма не меняется: все изменения согласуются отдельно и письменно.</p>
+      </details>
+
+      <details>
+        <summary>Что входит в доставку и монтаж?</summary>
+        <p>Привозим на объект, устанавливаем мебель и сантехнику, подключаем воду и слив, регулируем фурнитуру и убираем за собой. Вам остаётся только принять работу.</p>
+      </details>
+
+      <details>
+        <summary>Какая гарантия на мебель и сантехнику?</summary>
+        <p>7 лет гарантии на мебель и монтажные работы. На сантехнику и комплектующие действует гарантия производителей — документы передаём вместе с проектом.</p>
+      </details>
+    </div>
+
+    <p class="faq__bridge fade">
+      Не нашли ответ?
+      <a href="#contacts">Спросите менеджера напрямую →</a>
+    </p>
+  </div>
+</section>
+
+<script>
+  // Fade-in при скролле (на сборке вынесется в общий script.js)
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.fade').forEach(function(el){ el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade').forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>

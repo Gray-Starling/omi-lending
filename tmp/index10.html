@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMI — Спецпредложение (Тест)</title>
+  <link rel="stylesheet" href="assets/css/style10.css">
+</head>
+<body>
+
+  <!-- ПРОМО-БЛОК: подогрев перед формой (в воронке — между FAQ и формой) -->
+  <section class="offer" id="offer">
+    <div class="wrap">
+      <div class="offer__box fade">
+        <span class="offer__tag">Специальное предложение</span>
+        <h2>При заказе тумбы — <b>скидка 30% на раковину</b></h2>
+        <p>Бонус к основной покупке: скидка действует на раковину, когда в заказе есть тумба нашего производства. Цену фиксируем в договоре.</p>
+        <a href="#contacts" class="btn">Получить скидку</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.fade').forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

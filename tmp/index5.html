@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OMI — Сборка мебели (Тест)</title>
+    <link rel="stylesheet" href="assets/css/style5.css" />
+  </head>
+  <body>
+    <!-- БЛОК 4. СБОРКА МЕБЕЛИ -->
+    <section class="furniture" id="furniture">
+      <div class="wrap">
+        <div class="split">
+          <!-- СЛАЙД-ШОУ: чтобы добавить фото — вставь ещё один <figure>
+             внутрь .showcase__track, чтобы убрать — удали его. JS подхватит сам. -->
+          <div
+            class="showcase fade"
+            aria-label="Фотографии нашей мебели и шоурума"
+          >
+            <div class="showcase__track">
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/furniture.png"
+                  alt="Тумба «Нежность», производство OMI"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Тумба «Нежность»</figcaption>
+              </figure>
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/project-1.png"
+                  alt="Ванная комната в ЖК «Юпитер», мебель OMI"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>ЖК «Юпитер» — мебель на объекте</figcaption>
+              </figure>
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/project-2.png"
+                  alt="Ванная комната 7,4 м² в ЖК «Сопка»"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>ЖК «Сопка» — 7,4 м²</figcaption>
+              </figure>
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/project-3.png"
+                  alt="Компактная ванная комната с пеналом и угловым душем"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Компакт: пенал и угловой душ</figcaption>
+              </figure>
+              <figure class="showcase__slide">
+                <img
+                  src="assets/img/promo.png"
+                  alt="Комплект: тумба и раковина OMI"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Комплект месяца: тумба + раковина</figcaption>
+              </figure>
+            </div>
+            <button
+              class="showcase__btn showcase__btn--prev"
+              aria-label="Предыдущее фото"
+            >
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button
+              class="showcase__btn showcase__btn--next"
+              aria-label="Следующее фото"
+            >
+              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
+            </button>
+            <div class="showcase__dots"></div>
+          </div>
+
+          <div class="split__text fade">
+            <h2>Каждый сантиметр работает</h2>
+            <p class="split__lead">
+              Мы не просто собираем шкафы — мы проектируем наполнение под ваши
+              привычки: что лежит в ящиках и шкафах, куда выезжают корзины и что
+              прячется в нише.
+            </p>
+            <ul class="flist">
+              <li>
+                Наполнение под ваши сценарии: выдвижные корзины, органайзеры и
+                полки. Всё имеет своё место.
+              </li>
+              <li>
+                Фурнитура с доводчиками и направляющие под нагрузку: дверцы не
+                хлопают, ящики не провисают
+              </li>
+              <li>
+                Корпуса рассчитаны на влажную зону: не боятся пара, брызг и
+                ежедневной уборки
+              </li>
+            </ul>
+            <div class="furniture__cta">
+              <a href="#contacts" class="btn"
+                >Рассчитать мебель
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        /* Появление при скролле */
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+        document.querySelectorAll(".fade").forEach(function (el) {
+          io.observe(el);
+        });
+
+        /* Слайд-шоу: стрелки, точки, автоплей, свайп */
+        var box = document.querySelector(".showcase");
+        if (!box) return;
+        var slides = box.querySelectorAll(".showcase__slide");
+        var dotsBox = box.querySelector(".showcase__dots");
+        var reduce = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        var i = 0,
+          timer = null;
+
+        slides.forEach(function (_, n) {
+          var d = document.createElement("button");
+          d.className = "showcase__dot";
+          d.type = "button";
+          d.setAttribute("aria-label", "Фото " + (n + 1));
+          d.addEventListener("click", function () {
+            go(n);
+            restart();
+          });
+          dotsBox.appendChild(d);
+        });
+        var dots = dotsBox.querySelectorAll(".showcase__dot");
+
+        function go(n) {
+          i = (n + slides.length) % slides.length;
+          slides.forEach(function (s, k) {
+            s.classList.toggle("active", k === i);
+          });
+          dots.forEach(function (d, k) {
+            d.classList.toggle("active", k === i);
+          });
+        }
+        function restart() {
+          clearInterval(timer);
+          if (!reduce)
+            timer = setInterval(function () {
+              go(i + 1);
+            }, 5000);
+        }
+
+        box
+          .querySelector(".showcase__btn--next")
+          .addEventListener("click", function () {
+            go(i + 1);
+            restart();
+          });
+        box
+          .querySelector(".showcase__btn--prev")
+          .addEventListener("click", function () {
+            go(i - 1);
+            restart();
+          });
+        box.addEventListener("mouseenter", function () {
+          clearInterval(timer);
+        });
+        box.addEventListener("mouseleave", restart);
+
+        var x0 = null;
+        box.addEventListener(
+          "touchstart",
+          function (e) {
+            x0 = e.touches[0].clientX;
+          },
+          { passive: true },
+        );
+        box.addEventListener(
+          "touchend",
+          function (e) {
+            if (x0 === null) return;
+            var dx = e.changedTouches[0].clientX - x0;
+            if (Math.abs(dx) > 40) {
+              go(i + (dx < 0 ? 1 : -1));
+              restart();
+            }
+            x0 = null;
+          },
+          { passive: true },
+        );
+
+        go(0);
+        restart();
+      })();
+    </script>
+  </body>
+</html>

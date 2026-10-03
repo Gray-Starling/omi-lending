@@ -1,0 +1,243 @@
+/* ============================================================
+   OMI · БЛОК 8 · ВОПРОС-ОТВЕТ (dark)
+   index9.html + style9.css · V10
+   Ритм: 7 Отзывы (light) → 8 ФАК (dark) → 9 Промо (dark)
+   ============================================================ */
+
+/* --- Токены --- */
+:root {
+  --gold: #f1da8d;
+  --gold-h: #e9d07a;
+  --gold-d: #d9b95c;
+  --white: #f5f4f1;
+  --ink: #1e1d1a;
+  --light: #efede8;
+  --gray: #6e6a63;
+  --dark: #201b16;
+  --bg-page: #241c15;
+  --graphite: #4f5052;
+
+  --font-body: "Mulish";
+  --font-head: "Tenor Sans";
+  --font-ui: "Sansation";
+
+  --radius-card: 16px;
+  --radius-pill: 999px;
+
+  --line-gold-faint: rgba(241, 218, 141, 0.2);
+  --line-gold-soft: rgba(241, 218, 141, 0.35);
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* --- Шрифты --- */
+@font-face {
+  font-family: "Mulish";
+  src: url("../fonts/Mulish/static/Mulish-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mulish";
+  src: url("../fonts/Mulish/static/Mulish-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Tenor Sans";
+  src: url("../fonts/Tenor_Sans/TenorSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sansation";
+  src: url("../fonts/Sansation/Sansation-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* --- База --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body), Inter, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: var(--white);
+  background: var(--bg-page);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 {
+  font-family: var(--font-head), var(--font-body), serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+/* --- Вуаль сверху (переход от light-отзывов) --- */
+.soft-top {
+  position: relative;
+}
+.soft-top::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  background: linear-gradient(180deg, var(--from), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+.soft-top > .wrap { position: relative; z-index: 1; }
+
+/* --- Появление при скролле --- */
+.fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ============================================================
+   БЛОК 8. ВОПРОС-ОТВЕТ (dark)
+   ============================================================ */
+.faq {
+  background: var(--dark);
+  color: var(--white);
+  padding: 110px 0;
+  --from: var(--light);
+}
+
+.faq h2 {
+  color: #fff;
+  font-size: clamp(28px, 2.8vw, 44px);
+  letter-spacing: -0.01em;
+}
+
+.faq__lead {
+  font-family: var(--font-body), sans-serif;
+  font-weight: 600;
+  color: rgba(245, 244, 241, 0.75);
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 560px;
+  margin-top: 18px;
+}
+
+.faq__list {
+  margin-top: 48px;
+  border-top: 1px solid var(--line-gold-faint);
+}
+
+.faq__list details {
+  border-bottom: 1px solid var(--line-gold-faint);
+}
+
+.faq__list summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+  font-family: var(--font-body), sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--white);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s;
+}
+.faq__list summary::-webkit-details-marker { display: none; }
+
+.faq__list summary::after {
+  content: "+";
+  font-family: var(--font-ui), sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 0.25s var(--ease);
+}
+
+.faq__list details[open] summary::after {
+  content: "–";
+}
+
+.faq__list summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.faq__list p {
+  padding: 0 40px 26px 0;
+  color: rgba(245, 244, 241, 0.7);
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 820px;
+}
+
+.faq__bridge {
+  margin-top: 40px;
+  font-size: 15px;
+  color: rgba(245, 244, 241, 0.7);
+  text-align: center;
+}
+
+.faq__bridge a {
+  color: var(--gold);
+  border-bottom: 1px solid rgba(241, 218, 141, 0.4);
+  transition: color 0.2s, border-color 0.2s;
+}
+.faq__bridge a:hover {
+  color: var(--gold-h);
+  border-color: var(--gold-h);
+}
+.faq__bridge a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 900px) {
+  .wrap { padding: 0 40px; }
+}
+
+@media (max-width: 640px) {
+  .faq { padding: 80px 0; }
+  .wrap { padding: 0 24px; }
+  .faq__lead { font-size: 15px; }
+  .faq__list { margin-top: 36px; }
+  .faq__list summary {
+    padding: 20px 0;
+    font-size: 15px;
+    gap: 16px;
+  }
+  .faq__list summary::after { font-size: 22px; }
+  .faq__list p {
+    padding: 0 32px 22px 0;
+    font-size: 14px;
+  }
+  .faq__bridge { margin-top: 32px; font-size: 14px; }
+}
