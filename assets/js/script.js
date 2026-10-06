@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <ul class="solution-slide__list">${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
         <div class="solution-slide__footer">
           <span class="solution-slide__price">${s.price}</span>
-          <a href="#contacts" class="btn">Выбрать</a>
+          <a href="#contacts" class="btn">Хочу такую же</a>
         </div>
       </div>`;
     stage.appendChild(el);
