@@ -1991,6 +1991,27 @@ background: rgba(26, 23, 19, 0.62);
   text-align: left;
 }
 
+.ctaform__topic {
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  text-align: center;
+}
+.ctaform__topic[hidden] { display: none; }
+.ctaform__topic-reset {
+  margin-left: 8px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  font: inherit;
+  font-size: 13px;
+  color: var(--gold-d);
+  cursor: pointer;
+}
+.ctaform__topic-reset:focus-visible { outline: 2px solid var(--gold-d); outline-offset: 2px; }
+
 /* --- Поле --- */
 
 .contact__field { display: flex; flex-direction: column; }

@@ -159,7 +159,7 @@
           </div>
           <p class="hero__hook">Продумаем хранение до последней полочки.</p>
           <div class="hero__actions">
-            <a href="#contacts" class="btn"
+            <a href="#contacts" data-topic="Комплексное решение для ванной" class="btn"
               >Рассчитать стоимость
               <svg
                 width="16"
@@ -314,7 +314,7 @@
         </div>
 
         <div class="product__cta fade">
-          <a href="#contacts" class="btn"
+          <a href="#contacts" data-topic="Сантехника и аксессуары" class="btn"
             >Рассчитать стоимость
             <svg
               width="16"
@@ -427,7 +427,7 @@
               </li>
             </ul>
             <div class="furniture__cta">
-              <a href="#contacts" class="btn"
+              <a href="#contacts" data-topic="Мебель на заказ" class="btn"
                 >Рассчитать стоимость
                 <svg
                   width="16"
@@ -591,7 +591,7 @@
 
         <div class="solutions__custom fade">
           <p>Нужно другое решение? Соберём индивидуальное.</p>
-          <a href="#contacts" class="btn">Рассчитать стоимость</a>
+          <a href="#contacts" data-topic="Индивидуальное решение" class="btn">Рассчитать стоимость</a>
         </div>
       </div>
     </section>
@@ -1112,7 +1112,7 @@
             Бонус к основной покупке: скидка действует на раковину, когда в
             заказе есть тумба нашего производства. Цену фиксируем в договоре.
           </p>
-          <a href="#contacts" class="btn">Получить скидку</a>
+          <a href="#contacts" data-topic="Скидка 30% на раковину при заказе тумбы" class="btn">Получить скидку</a>
         </div>
       </div>
     </section>
@@ -1126,6 +1126,11 @@
         </p>
 
         <form class="ctaform__form fade" action="#" method="post" novalidate>
+          <input type="hidden" name="topic" value="" />
+          <p class="ctaform__topic" hidden>
+            Вы выбрали: <b class="ctaform__topic-text"></b>
+            <button type="button" class="ctaform__topic-reset">сбросить</button>
+          </p>
           <div class="contact__field">
             <div class="contact__control">
               <input

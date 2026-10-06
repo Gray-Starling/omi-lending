@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <ul class="solution-slide__list">${s.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
         <div class="solution-slide__footer">
           <span class="solution-slide__price">${s.price}</span>
-          <a href="#contacts" class="btn">Хочу такую же</a>
+          <a href="#contacts" data-topic="Решение «${s.title}»" class="btn">Хочу такую же</a>
         </div>
       </div>`;
     stage.appendChild(el);
@@ -688,4 +688,32 @@ COOKIE-БАННЕР
       // TODO: логика отказа (блокировка трекеров/аналитики) — доделывается отдельно
     });
   }
+})();
+
+/* Тема заявки: кнопки с data-topic подставляют выбор в форму */
+(function () {
+  var form = document.querySelector('.ctaform__form');
+  if (!form) return;
+  var hidden = form.querySelector('[name="topic"]');
+  var line = form.querySelector('.ctaform__topic');
+  var text = form.querySelector('.ctaform__topic-text');
+  var reset = form.querySelector('.ctaform__topic-reset');
+  if (!hidden || !line || !text || !reset) return;
+
+  function setTopic(value) {
+    hidden.value = value;
+    text.textContent = value;
+    line.hidden = !value;
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[data-topic]') : null;
+    if (a) setTopic(a.getAttribute('data-topic') || '');
+    else {
+      var plain = e.target.closest ? e.target.closest('a[href="#contacts"]') : null;
+      if (plain) setTopic('');
+    }
+  });
+
+  reset.addEventListener('click', function () { setTopic(''); });
 })();
