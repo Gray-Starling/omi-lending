@@ -10,10 +10,10 @@
 
 ## Инструменты
 - **Git** — три ветки: `main`, `dev` (текущая), `pre-prod`. Ориджин — Github.
-- **Cline / .clinerules** — память агента; правила в `.clinerules/memory-bank.md`.
+- **Cline / .clinerules** — правила агента (папка пуста, будет заполнена при необходимости). Memory Bank читается через системный промпт Cline.
 - **.clineignore** исключает: `node_modules/`, `*.min.js`, `*.min.css`, `*.map`, `.git/`, `.vscode/`, `fonts/`, `images/archive/`, `*.log`, `screenshots/`, `audit/handoff.md`.
 - **Скриншоты** — в `screenshots/` (в .gitignore, не отслеживаются), full-page desktop/mobile.
-- **Аудит** — папка `audit/` содержит `instructions/checklist.md`, `instructions/f3-decision.md`, `reports/a3-audit.md`. Подпапка `context/` пустая.
+- **Аудит** — папка `audit/` содержит `instructions/checklist.md`, `instructions/f3-decision.md`, `reports/a3-audit.md`, `handoff.md` (промпт для браузерного ассистента, в `.clineignore`). Подпапка `context/` пустая.
 
 ## Модели и роли (07.10.2026)
 - **Act Mode:** `deepseek/deepseek-v4-flash-0731`, провайдер StreamLake (подтверждён). Кэш-чтение 0.17 ₽/M, вход 5.39 ₽/M, выход 16 ₽/M. Оптимален для правок HTML/CSS/JS.
