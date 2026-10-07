@@ -535,38 +535,16 @@ background: rgba(26, 23, 19, 0.62);
     0 2px 10px rgba(15, 13, 10, 0.35);
 }
 
-/* Пилюли-категории */
-
 .hero__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-  max-width: 640px;
-}
-
-.hero__tag {
-  padding: 9px 16px;
-  border: 1px solid rgba(245, 244, 241, 0.3);
-  border-radius: var(--radius-pill);
-  background: rgba(31, 30, 28, 0.45);
+  color: rgba(245, 244, 241, 0.92);
   font-family: var(--font-ui), var(--font-body), sans-serif;
+  font-size: 14px;
   font-weight: 400;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: rgba(245, 244, 241, 0.9);
-}
-
-/* Хук — единственный цветовой акцент */
-
-.hero__hook {
-  margin-top: 22px;
-  font-family: var(--font-ui), var(--font-body), sans-serif;
-  font-weight: 400;
-  font-size: 15px;
   letter-spacing: 0.02em;
-  color: var(--gold);
-  text-shadow: 0 1px 2px rgba(15, 13, 10, 0.45);
+  margin-top: 16px;
+  text-shadow:
+    0 1px 2px rgba(15, 13, 10, 0.45),
+    0 2px 10px rgba(15, 13, 10, 0.35);
 }
 
 .hero__actions {
@@ -680,7 +658,6 @@ background: rgba(26, 23, 19, 0.62);
   .h1__br { display: none; }
   .hero__content { padding: 110px 0 120px; }
   .hero__actions { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .hero__tag { font-size: 12px; padding: 8px 14px; }
   .wrap { padding: 0 24px; }
   .hero-stats {
     margin-top: -50px;
