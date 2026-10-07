@@ -714,10 +714,10 @@ background: rgba(26, 23, 19, 0.62);
 .product__motto {
   margin-top: 14px;
   font-family: var(--font-ui), var(--font-body), sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  letter-spacing: 0.05em;
-  color: var(--gold-d);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  color: #6f5216; /* контраст 6.2:1 на #efede8 */
 }
 
 .product__grid {
@@ -762,6 +762,20 @@ background: rgba(26, 23, 19, 0.62);
   line-height: 1.6;
   color: var(--gray);
 }
+
+.product-card__link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6f5216;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.product-card__link:hover { border-bottom-color: currentColor; }
+
+.product-card--featured .product-card__link { color: var(--gold); }
 
 /* Акцентная карточка «Мебель»: сплит с фото */
 
@@ -831,6 +845,7 @@ background: rgba(26, 23, 19, 0.62);
   .product {
     padding: 120px 0 80px;
   }
+  .product__motto { font-size: 17px; }
   .product__grid { grid-template-columns: 1fr; margin-top: 36px; }
   .product-card--featured {
     grid-column: span 1;
