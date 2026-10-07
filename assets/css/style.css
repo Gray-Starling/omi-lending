@@ -583,6 +583,23 @@ background: rgba(26, 23, 19, 0.62);
 
 /* Ссылка «Посмотреть проекты» — в резерве */
 
+/* Строка-оффер под кнопкой hero */
+
+.hero-offer {
+  margin-top: 12px;
+  font-family: var(--font-ui), var(--font-body), sans-serif;
+  font-size: 14px;
+}
+
+.hero-offer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.hero-offer a:hover {
+  text-decoration: underline;
+}
+
 .hero__link {
   font-family: var(--font-ui), var(--font-body), sans-serif;
   font-weight: 400;
