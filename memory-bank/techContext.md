@@ -11,9 +11,9 @@
 ## Инструменты
 - **Git** — три ветки: `main`, `dev` (текущая), `pre-prod`. Ориджин — Github.
 - **Cline / .clinerules** — память агента; правила в `.clinerules/memory-bank.md`.
-- **.clineignore** — исключает `node_modules/`, `*.min.*`, `.git/`, `.vscode/`, `fonts/`, `images/archive/`, `*.log`.
-- **Скриншоты** — в `screenshots/` (не в git), full-page desktop/mobile.
-- **Аудит** — папка `audit/` (пустая, готовится к наполнению: `context/`, `instructions/`, `reports/`).
+- **.clineignore** исключает: `node_modules/`, `*.min.js`, `*.min.css`, `*.map`, `.git/`, `.vscode/`, `fonts/`, `images/archive/`, `*.log`, `audit/`, `memory-bank/`, `docs/`, `for_del/`, `*-old*`, `tmp/`, `screenshots/`.
+- **Скриншоты** — в `screenshots/` (в .gitignore, не отслеживаются), full-page desktop/mobile.
+- **Аудит** — папка `audit/` содержит `instructions/checklist.md`, `instructions/f3-decision.md`, `reports/a3-audit.md`. Подпапка `context/` пустая.
 
 ## Модели и роли (07.10.2026)
 - **Act Mode:** `deepseek/deepseek-v4-flash-0731`, провайдер StreamLake (подтверждён). Кэш-чтение 0.17 ₽/M, вход 5.39 ₽/M, выход 16 ₽/M. Оптимален для правок HTML/CSS/JS.
@@ -43,4 +43,4 @@
 
 ## Настройки инструментов
 - История команд git: `export GIT_PAGER=cat`.
-- Формат коммитов на ветке `dev`: префикс `A1`–`A5` для аудита, далее `Bn`, `Cn`.
+- Формат коммитов на ветке `dev`: префиксы `A1`–`A5`, `B1`–`B5` по пунктам аудита, далее `Cn`, `Dn` и так далее.
