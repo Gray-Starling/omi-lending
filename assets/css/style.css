@@ -662,7 +662,21 @@ background: rgba(26, 23, 19, 0.62);
   .hero-stats {
     margin-top: -50px;
   }
-  
+  .hero::before {
+    background:
+      radial-gradient(
+        ellipse 80% 60% at 50% 40%,
+        rgba(219, 166, 94, 0.14),
+        rgba(219, 166, 94, 0) 70%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(31, 30, 28, 0.72) 0%,
+        rgba(31, 30, 28, 0.55) 30%,
+        rgba(31, 30, 28, 0.55) 70%,
+        rgba(31, 30, 28, 0.78) 100%
+      );
+  }
 }
 
 @media (max-width: 480px) {
