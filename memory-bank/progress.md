@@ -69,3 +69,7 @@
 - Изначальная архитектура: `.agent/` с STATE/ARCHITECTURE/COMPANY/DECISIONS/TASKS/NOTES.
 - Текущая память: `.clinerules/memory-bank.md` (текущий документ).
 - Папка `audit/` содержит `instructions/checklist.md`, `instructions/f3-decision.md`, `reports/a3-audit.md`.
+- 06.10.2026: вести `memory-bank/companyProfile.md` как постоянный профиль OMI; отделять факты от заявлений и неизвестного.
+- 06.10.2026: задачи фиксировать только по запросу пользователя, не добавлять своё.
+- `for_del/` больше не актуальна, удалена (опубликовано в `dev` и `main`).
+- 07.10.2026: получены ответы владельца по пунктам аудита C–I (см. «Полученные ответы»).
