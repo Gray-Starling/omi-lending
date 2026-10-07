@@ -709,10 +709,6 @@ COOKIE-БАННЕР
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a[data-topic]') : null;
     if (a) setTopic(a.getAttribute('data-topic') || '');
-    else {
-      var plain = e.target.closest ? e.target.closest('a[href="#contacts"]') : null;
-      if (plain) setTopic('');
-    }
   });
 
   reset.addEventListener('click', function () { setTopic(''); });
