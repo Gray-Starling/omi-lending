@@ -1,0 +1,9 @@
+node_modules/
+*.min.js
+*.min.css
+*.map
+.git/
+.vscode/
+fonts/
+images/archive/
+*.log
