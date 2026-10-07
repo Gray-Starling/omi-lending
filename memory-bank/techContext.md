@@ -11,7 +11,7 @@
 ## Инструменты
 - **Git** — три ветки: `main`, `dev` (текущая), `pre-prod`. Ориджин — Github.
 - **Cline / .clinerules** — память агента; правила в `.clinerules/memory-bank.md`.
-- **.clineignore** исключает: `node_modules/`, `*.min.js`, `*.min.css`, `*.map`, `.git/`, `.vscode/`, `fonts/`, `images/archive/`, `*.log`, `audit/`, `memory-bank/`, `docs/`, `for_del/`, `*-old*`, `tmp/`, `screenshots/`.
+- **.clineignore** исключает: `node_modules/`, `*.min.js`, `*.min.css`, `*.map`, `.git/`, `.vscode/`, `fonts/`, `images/archive/`, `*.log`, `screenshots/`, `audit/handoff.md`.
 - **Скриншоты** — в `screenshots/` (в .gitignore, не отслеживаются), full-page desktop/mobile.
 - **Аудит** — папка `audit/` содержит `instructions/checklist.md`, `instructions/f3-decision.md`, `reports/a3-audit.md`. Подпапка `context/` пустая.
 

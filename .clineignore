@@ -7,9 +7,5 @@ node_modules/
 fonts/
 images/archive/
 *.log
-audit/
-memory-bank/
-docs/
-for_del/
-*-old*
-tmp/
+screenshots/
+audit/handoff.md
