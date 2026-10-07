@@ -9,6 +9,8 @@
   --ink: #1e1d1a;
   --dark: #201b16;
   --graphite: #383838;
+  --card-warm: #40352b;
+  --card-warm-deep: #2b231d;
   --bg-page: #efede8;
   --line-topbar: rgba(255, 255, 255, 0.05);
   --line-circle: rgba(245, 244, 241, 0.28);
@@ -27,7 +29,6 @@
   --gray-light: #9e9a93;
   --line-veil-light: rgba(30, 29, 26, 0.08);
   --star-color: #ffb800;
-  --link-blue: #2b6cb0;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --error: #d9534f;
   --success: #2f9e63;
@@ -611,7 +612,7 @@ background: rgba(26, 23, 19, 0.62);
 }
 
 .stat {
-  background: var(--graphite);
+  background: var(--card-warm);
   border: 1px solid rgba(241, 218, 141, 0.22);
   border-radius: var(--radius-card);
   padding: 22px 24px;
@@ -1343,7 +1344,7 @@ background: rgba(26, 23, 19, 0.62);
 ============================================================ */
 
 .solutions__custom{margin-top:56px;text-align:center;padding:40px;
-  background:var(--graphite);border:1px solid var(--line-gold-faint);border-radius:var(--radius-card)}
+  background:var(--card-warm);border:1px solid var(--line-gold-faint);border-radius:var(--radius-card)}
 
 .solutions__custom p{color:rgba(245,244,241,.85);font-size:16px;margin-bottom:20px}
 
@@ -1535,19 +1536,19 @@ background: rgba(26, 23, 19, 0.62);
   letter-spacing: 0.02em;
 }
 
-.ava--1 { background-color: #e74c3c; }
+.ava--1 { background-color: #8b6f47; }
 
-.ava--2 { background-color: #e67e22; }
+.ava--2 { background-color: #8a5a44; }
 
-.ava--3 { background-color: #f39c12; }
+.ava--3 { background-color: #6b4f2f; }
 
-.ava--4 { background-color: #27ae60; }
+.ava--4 { background-color: #7d5f3f; }
 
-.ava--5 { background-color: #16a085; }
+.ava--5 { background-color: #6b6a3a; }
 
-.ava--6 { background-color: #2980b9; }
+.ava--6 { background-color: #5c4a32; }
 
-.ava--7 { background-color: #8e44ad; }
+.ava--7 { background-color: #7a4a4e; }
 
 .rev__author {
   flex: 1;
@@ -1654,7 +1655,7 @@ background: rgba(26, 23, 19, 0.62);
   border: none;
   padding: 0;
   margin-top: 8px;
-  color: var(--link-blue);
+  color: #6f5216;
   font-family: var(--font-body), sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -1664,7 +1665,7 @@ background: rgba(26, 23, 19, 0.62);
 }
 
 .rev__readmore:hover {
-  color: #1a4a7a;
+  color: #2a2420;
   text-decoration: underline;
 }
 
@@ -1895,7 +1896,7 @@ background: rgba(26, 23, 19, 0.62);
 }
 
 .offer__box {
-  background: var(--graphite);
+  background: var(--card-warm-deep);
   border: 1px solid var(--line-gold-faint);
   border-radius: var(--radius-card);
   padding: 56px 48px;
